@@ -1,5 +1,10 @@
-
 # BÁLINT NAGY
+
+
+Oneline CV 
+Markdown edition
+
+---
 
 [baalintnagy.github.io](https://baalintnagy.github.io)
 

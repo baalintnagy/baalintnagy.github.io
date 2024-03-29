@@ -59,7 +59,7 @@ Delegated by Grafinit LLC
 
 -   Design and implementation of user stories of the Licensing module of the LANCOM Management Cloud (LMC).
 -   Upgrading and optimizing legacy code.
-- 
+
 #### Technologies
 - Java-17
 - Spring-Boot 
@@ -163,7 +163,7 @@ Delegated by QualySoft
 
 #### Technologies
 - Java-5
-- AspcetJ
+- AspectJ
 
 
 

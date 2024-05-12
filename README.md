@@ -196,24 +196,24 @@ Delegated by QualySoft
 ### TECHNICAL SKILLS
 
 ```
-- Java 21 - 1.5			★★★★★★★★★★ (expert)
-- AspectJ				★★★★★★★★☆☆ (advanced)
-- Spring, Spring Boot	★★★★★★★★★☆ (advanced)
-- ORM, JPS-Hibernate	★★★★★★★★☆☆ (advanced)
-- MySQL/MariaDB			★★★★★★★☆☆☆ (strong)
-- PostgreSQL			★★★★★★★☆☆☆ (strong)
-- Oracle				★★★★★★☆☆☆☆ (intermediate)
-- Elasticsearch			★★★★★★★☆☆☆ (strong)
-- MongoDB				★★★★★★☆☆☆☆ (intermediate)
-- Cassandra				★★★★★★☆☆☆☆ (intermediate)
-- Git					★★★★★★★★☆☆ (strong)
-- Jenkins				★★★★★★★☆☆☆ (strong)
-- Gitlab & CI/CD		★★★★★★★☆☆☆ (strong)
-- Docker				★★★★★★★★☆☆ (advanced)
-- Kubernetes			★★★★★☆☆☆☆☆ (intermediate)
-- C/C++					★★★★☆☆☆☆☆☆ (beginner)
-- C#					★★★★☆☆☆☆☆☆ (beginner)
-- Python				★★★☆☆☆☆☆☆☆ (beginner)
+- Java 21 - 1.5        ★★★★★★★★★★ (expert)
+- AspectJ              ★★★★★★★★☆☆ (advanced)
+- Spring, Spring Boot	 ★★★★★★★★★☆ (advanced)
+- ORM, JPS-Hibernate   ★★★★★★★★☆☆ (advanced)
+- MySQL/MariaDB        ★★★★★★★☆☆☆ (strong)
+- PostgreSQL           ★★★★★★★☆☆☆ (strong)
+- Oracle               ★★★★★★☆☆☆☆ (intermediate)
+- Elasticsearch        ★★★★★★★☆☆☆ (strong)
+- MongoDB              ★★★★★★☆☆☆☆ (intermediate)
+- Cassandra            ★★★★★★☆☆☆☆ (intermediate)
+- Git                  ★★★★★★★★☆☆ (strong)
+- Jenkins              ★★★★★★★☆☆☆ (strong)
+- Gitlab & CI/CD       ★★★★★★★☆☆☆ (strong)
+- Docker               ★★★★★★★★☆☆ (advanced)
+- Kubernetes           ★★★★★☆☆☆☆☆ (intermediate)
+- C/C++                ★★★★☆☆☆☆☆☆ (beginner)
+- C#                   ★★★★☆☆☆☆☆☆ (beginner)
+- Python               ★★★☆☆☆☆☆☆☆ (beginner)
 ```
 
   
@@ -231,6 +231,6 @@ Delegated by QualySoft
 ### LANGUAGES
 
 ```
-- English	★★★★★★★★★★ (expert)
-- German	★☆☆☆☆☆☆☆☆☆ (passive, beginner)
+- English  ★★★★★★★★★★ (expert)
+- German	  ★☆☆☆☆☆☆☆☆☆ (passive, beginner)
 ```

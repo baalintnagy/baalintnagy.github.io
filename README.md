@@ -1,10 +1,8 @@
 # BÁLINT NAGY
 
 
-Oneline CV 
-Markdown edition
+## SOFTWARE ENGINEER
 
----
 
 [baalintnagy.github.io](https://baalintnagy.github.io)
 
@@ -15,13 +13,9 @@ Markdown edition
 ---
 
 
-**SOFTWARE ENGINEER**
-
 ## ABOUT ME
 
 From about the age of 15, I have been deeply passionate about software development and computational problem-solving. This early start laid the foundation for what would lead to gaining a Master's degree in Software Engineering and a career in the realm of IT.
-
-My approach to problem-solving is characterized by rationality, objectivity, and rigor, ensuring that each solution is not just viable but also optimally designed and implemented.
 
 My specialization leans heavily towards backend development, with a particular emphasis on Java — having witnessed the evolution of JDK from 1.4 to 21. My expertise consists of technologies like Spring and Spring Boot, microservices architecture, ORM: JPA/Hibernate, and a variety of RDBMS databases such as MySQL/MariaDB, PostgreSQL and Oracle, alongside NoSQL solutions like Elasticsearch, MongoDB, Redis, and Cassandra.
 
@@ -29,40 +23,51 @@ Additionally, I'm experienced in message streaming solutions like Apache Kafka, 
 
 While my proficiency is predominantly in backend development, I am always willing and capable of learning and adapting to new technologies
 
+ 
+
 ## PROFESSIONAL EXPERIENCE
+ 
 
+### *2023. July  – Present* – Hellmann Worldwide Logistics
+ 
+ **Senior Software Engineer**
 
-### *2023. July -- Present* -- Hellmann Worldwide Logistics
-**Senior Software Engineer**
-Delegated by Grafinit LLC
+Delegated by Grafinit LLC  
 
--   Design and implementation of different software modules of an internal Salesperson Commission Calculation System which satisfies various regions-specific requirements, worldwide (IMEA, AMCS, etc).
--   Planning and execution of porting legacy software to newer technologies. Performing conversion from monolith to microservices.
+- Design and implementation of different software modules of an internal Salesperson Commission Calculation System which satisfies various regions-specific requirements, worldwide (IMEA, AMCS, etc).
 
+- Planning and execution of porting legacy software to newer technologies. Performing conversion from monolith to microservices.
+ 
 #### Technologies
-- Java-21
-- Java-15
-- Spring-Boot 
+
+- Java 21
+- Java 15
+- Spring Boot
 - Micsroservices
 - JPA/Hibernate
-- Oracle-DB
+- Oracle DB
 - Liquibase
 - Elasticsearch
 - Kibana
 - Docker
-- Docker-Swarm
-- GitLab-CI
+- Docker Swarm
+- GitLab CI
 
-### *2023. January -- 2023. June* -- LANCOM Systems GmbH.
+  
+### *2023. January – 2023. June* – LANCOM Systems GmbH.
+
 **Senior Java Developer**
-Delegated by Grafinit LLC
 
--   Design and implementation of user stories of the Licensing module of the LANCOM Management Cloud (LMC).
--   Upgrading and optimizing legacy code.
+Delegated by Grafinit LLC  
+
+- Design and implementation of user stories of the Licensing module of the LANCOM Management Cloud (LMC).
+
+- Upgrading and optimizing legacy code.  
 
 #### Technologies
-- Java-17
-- Spring-Boot 
+
+- Java 17
+- Spring Boot
 - Micsroservices
 - JPA/Hibernate
 - PostgreSQL
@@ -71,19 +76,22 @@ Delegated by Grafinit LLC
 - Elasticsearch
 - Kibana
 - Kubernetes
-- GitLab-CI
+- GitLab CI
+ 
 
+### *2018 – 2022* – Starschema
 
-### *2018 -- 2022* -- Starschema
 **Senior Software Developer**
 
--   Design and development of microservice-based data transformation systems based on Kafka Streams and backend modules of a container transportation management software system.
--   Managing cloud deployment and configurations (AWS).,
+- Design and development of microservice-based data transformation systems based on Kafka Streams and backend modules of a container transportation management software system.
 
+- Managing cloud deployment and configurations (AWS).,
+ 
 #### Technologies
-- Java-8
-- Java-11
-- Spring-Boot 
+
+- Java 8
+- Java 11
+- Spring Boot
 - Micsroservices
 - WebFlux
 - JPA/Hibernate
@@ -93,20 +101,23 @@ Delegated by Grafinit LLC
 - Elasticsearch
 - Cassandra
 - Kubernetes
-- GitLab-CI
+- GitLab CI
 - Jenkins
+ 
 
+### *2015 – 2018* – Oncompass Medicine
 
-### *2015 -- 2018* -- Oncompass Medicine
 **Senior Java Developer**
 
--   Design and implementation of different modules of a diagnostic, precision medicine, decision support system, primarily targeted around genetic profile based cancer treatment strategies.
--   Architectural and detailed planning and estimation of user stories.
+- Design and implementation of different modules of a diagnostic, precision medicine, decision support system, primarily targeted around genetic profile based cancer treatment strategies.
 
+- Architectural and detailed planning and estimation of user stories.
+ 
 
 #### Technologies
-- Java-8
-- Spring-Boot 
+
+- Java 8
+- Spring Boot
 - Micsroservices
 - JPA/Hibernate
 - MariaDB/MySQL
@@ -117,86 +128,109 @@ Delegated by Grafinit LLC
 - Jenkins
 
 
-### *2013 --2015* -- Porsche Informatik GmbH. - CrossNG project
+### *2013 – 2015* – Porsche Informatik GmbH. – CrossNG project
+
 **Software Engineer**
-Delegated by QualySoft
 
--   Design and development of different modules for the CrossNG application.
--   Planning and estimation of user stories.
+Delegated by QualySoft  
 
+- Design and development of different modules for the CrossNG application.
+
+- Planning and estimation of user stories.
 
 #### Technologies
-- Java-7
-- Java-8
-- Spring-Boot 
+
+- Java 7
+- Java 8
+- Spring Boot
 - Micsroservices
 - Tapestry
 - JPA/Hibernate
-- Orcalse-DB
+- Orcalse DB
 - Liquibase
-- Active-MQ
+- Active MQ
 - SolR
 - Cassandra
 - Jenkins
+  
 
+### *2012 – 2013* – InfomatiX – Enterprise Mobility Division
 
-### *2012 -- 2013* -- InfomatiX -- Enterprise Mobility Division
 **Software Developer**
 
--   Design and implementation of a cross-platform mobile development framework (language and IDE based on the NetBeans platform).
--   Microsoft .NET application development (C#).
--   Cross-platform and native Android mobile development: product design and implementation.
+- Design and implementation of a cross-platform mobile development framework (language and IDE based on the NetBeans platform).
+
+- Microsoft .NET application development (C#).
+
+- Cross-platform and native Android mobile development: product design and implementation.
+  
 
 #### Technologies
-- Java-6
+
+- Java 6
 - Netbeans Platform
 - MS-SQL
 - SQLite
-- Android-Platform
-- .NET/C#
+- Android Platform
+- .NET C#
 
+  
 
-### *2011 -- 2012* -- Freelancer
+### *2011 – 2012* – Freelancer
+
 **Java and AspectJ Developer**
 
--   Design and development of custom UML profiles, and a tree-based, aspect-oriented code generator framework, implemented in Java language.,
+- Design and development of custom UML profiles, and a tree-based, aspect-oriented code generator framework, implemented in Java language.,
+
+  
 
 #### Technologies
-- Java-5
+
+- Java 5
 - AspectJ
 
-
+  
+  
+  
 
 ### TECHNICAL SKILLS
+
 ```
-- Java 21 - 1.5        ★★★★★★★★★★ (expert)
-- AspectJ              ★★★★★★★★☆☆ (advanced) 
-- Spring, Spring Boot  ★★★★★★★★★☆ (advanced) 
-- ORM, JPS-Hibernate   ★★★★★★★★☆☆ (advanced) 
-- MySQL/MariaD:        ★★★★★★★☆☆☆ (strong) 
-- PostgreSQL           ★★★★★★★☆☆☆ (strong) 
-- Oracle               ★★★★★★☆☆☆☆ (intermediate) 
-- Elasticsearch        ★★★★★★★☆☆☆ (strong) 
-- MongoDB              ★★★★★★☆☆☆☆ (intermediate) 
-- Cassandra            ★★★★★★☆☆☆☆ (intermediate) 
-- Git                  ★★★★★★★☆☆☆ (strong) 
-- Jenkins              ★★★★★★★☆☆☆ (strong) 
-- Gitlab & CI/CD       ★★★★★★★☆☆☆ (strong) 
-- Docker               ★★★★★★★★★☆ (advanced) 
-- Kubernetes           ★★★★★★☆☆☆☆ (intermediate) 
-- C/C++                ★★★★☆☆☆☆☆☆ (beginner) 
-- C#                   ★★★★☆☆☆☆☆☆ (beginner) 
-- Python               ★★★☆☆☆☆☆☆☆ (beginner) 
+- Java 21 - 1.5 		★★★★★★★★★★ (expert)
+- AspectJ 				★★★★★★★★☆☆ (advanced)
+- Spring, Spring Boot 	★★★★★★★★★☆ (advanced)
+- ORM, JPS-Hibernate 	★★★★★★★★☆☆ (advanced)
+- MySQL/MariaDB 		★★★★★★★☆☆☆ (strong)
+- PostgreSQL 			★★★★★★★☆☆☆ (strong)
+- Oracle 				★★★★★★☆☆☆☆ (intermediate)
+- Elasticsearch 		★★★★★★★☆☆☆ (strong)
+- MongoDB 				★★★★★★☆☆☆☆ (intermediate)
+- Cassandra 			★★★★★★☆☆☆☆ (intermediate)
+- Git 					★★★★★★★★☆☆ (strong)
+- Jenkins 				★★★★★★★☆☆☆ (strong)
+- Gitlab & CI/CD 		★★★★★★★☆☆☆ (strong)
+- Docker 				★★★★★★★★☆☆ (advanced)
+- Kubernetes 			★★★★★☆☆☆☆☆ (intermediate)
+- C/C++ 				★★★★☆☆☆☆☆☆ (beginner)
+- C# 					★★★★☆☆☆☆☆☆ (beginner)
+- Python 				★★★☆☆☆☆☆☆☆ (beginner)
 ```
+
+  
 
 ### EDUCATION
 
-> ###  [**Budapest University of Technology and Economics**](https://www.bme.hu/?language=en) - Sofware Engineering - Master's Degree 
->   Major in System Integration
- 2003 - 2010
+  
+>  ### [**Budapest University of Technology and Economics**](https://www.bme.hu/?language=en) - Sofware Engineering 
+> Master's Degree
+> Major in System Integration
+> 2003 - 2010
+
+  
 
 ### LANGUAGES
+
 ```
-- English   - ★★★★★★★★★★ - expert
-- German    - ★★☆☆☆☆☆☆☆☆ - passive, beginner 
+- English 	 ★★★★★★★★★★ (expert)
+- German 	 ★☆☆☆☆☆☆☆☆☆ (passive, beginner)
 ```

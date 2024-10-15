@@ -33,10 +33,73 @@
 
         const FORMULA_OUTPUT_LABEL_PREFIX = "Output: ";
 
+        function convertMathMLToPlainText(mathElement) {
+          const tagName = mathElement.tagName.toLowerCase();
+
+          switch (tagName) {
+              case 'math':
+                  return Array.from(mathElement.childNodes)
+                      .map(child => convertMathMLToPlainText(child))
+                      .join(' ');  // Convert all child elements recursively
+
+              case 'mfrac': {  // Handle fractions
+                  const numerator = convertMathMLToPlainText(mathElement.children[0]);
+                  const denominator = convertMathMLToPlainText(mathElement.children[1]);
+                  return `(${numerator}/${denominator})`; // Plain text fraction format
+              }
+
+              case 'msup': {  // Handle superscripts
+                  const base = convertMathMLToPlainText(mathElement.children[0]);
+                  const exponent = convertMathMLToPlainText(mathElement.children[1]);
+                  return `${base}^(${exponent})`;  // Superscript format: base^(exponent)
+              }
+
+              case 'msub': {  // Handle subscripts
+                  const base = convertMathMLToPlainText(mathElement.children[0]);
+                  const subscript = convertMathMLToPlainText(mathElement.children[1]);
+                  return `${base}_(${subscript})`;  // Subscript format: base_(subscript)
+              }
+
+              case 'msqrt': {  // Handle square roots
+                  const radicand = convertMathMLToPlainText(mathElement.children[0]);
+                  return `sqrt(${radicand})`;  // Square root: sqrt(radicand)
+              }
+
+              case 'mi':  // Identifiers (e.g., variables)
+              case 'mn':  // Numbers
+              case 'mo':  // Operators (e.g., +, -, *, /)
+                  return mathElement.textContent.trim();  // Return the plain content of the element
+
+              case 'munder': {  // Handle summation-like symbols (underscript)
+                  const base = convertMathMLToPlainText(mathElement.children[0]);
+                  const underscript = convertMathMLToPlainText(mathElement.children[1]);
+                  return `${base}_${underscript}`;  // Summation-like: base_underscript
+              }
+
+              case 'munderover': {  // Handle summation with both underscript and overscript
+                  const base = convertMathMLToPlainText(mathElement.children[0]);
+                  const underscript = convertMathMLToPlainText(mathElement.children[1]);
+                  const overscript = convertMathMLToPlainText(mathElement.children[2]);
+                  return `${base}_${underscript}^(${overscript})`;  // base_underscript^(overscript)
+              }
+
+              // Add more cases for other MathML elements as needed
+
+              default:
+                  return '';  // Return an empty string for unsupported elements
+          }
+      }
+
         function parseAndConvertHTML(input) {
           // Step 1: Parse the input string as HTML
           const parser = new DOMParser();
           const doc = parser.parseFromString(input, 'text/html');
+
+          const mathElements = doc.querySelectorAll('math');
+            mathElements.forEach(math => {
+                const plainMathText = convertMathMLToPlainText(math);
+                math.replaceWith(doc.createTextNode(plainMathText));
+            });
           
           // Step 2: Replace block-level elements with a space before getting the text content
           const blockElements = ['div', 'p', 'br', 'li', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol'];

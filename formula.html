@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formulator</title>
+    <title>Clipboard reader/cleaner</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/asciimathml/2.2.7/ASCIIMathML.min.js"></script>
   </head>
   <body>
     <div class="container mt-4">
-      <h1>Formula cleaner</h1>
+      <h1>Clipboard reader/cleaner</h1>
       <hr>
 
       <form>
@@ -20,7 +20,11 @@
         </div>
         <div class="form-group mb-3">
           <label id ="formulaOutputLabel" for="formulaOutput">Output:</label>
-          <textarea class="form-control" id="formulaOutput" rows="10"></textarea>
+          <textarea class="form-control" id="formulaOutput" rows="6"></textarea>
+        </div>
+        <hr>
+        <p>Re-render:</p>
+        <div class="form-group mb-3" id="previewDiv">
         </div>
       </form>
     </div>
@@ -30,79 +34,129 @@
         const formulaInput = document.getElementById('formulaInput');
         const formulaOutput = document.getElementById('formulaOutput');
         const formulaOutputLabel = document.getElementById('formulaOutputLabel');
+        const previewDiv = document.getElementById('previewDiv');
 
         const FORMULA_OUTPUT_LABEL_PREFIX = "Output: ";
 
-        function convertMathMLToPlainText(mathElement) {
-          const tagName = mathElement.tagName.toLowerCase();
 
-          switch (tagName) {
-              case 'math':
-                  return Array.from(mathElement.childNodes)
-                      .map(child => convertMathMLToPlainText(child))
-                      .join(' ');  // Convert all child elements recursively
+//--
+function mathmlToAsciiMath(mathml) {
+    // Recursive function to process the MathML nodes
+    function processNode(node) {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+            switch (node.tagName.toLowerCase()) {
+                case 'math': // Root element of MathML
+                    return processChildren(node);
+                case 'msup': // Superscript
+                    return processChildren(node.children[0]) + '^' + '(' + processChildren(node.children[1]) + ')';
+                case 'msub': // Subscript
+                    return processChildren(node.children[0]) + '_' + '(' + processChildren(node.children[1]) + ')';
+                case 'msubsup': // Subscript and Superscript
+                    return processChildren(node.children[0]) + '_' + '(' + processChildren(node.children[1]) + ')' + '^' + '(' + processChildren(node.children[2]) + ')';
+                case 'mfrac': // Fraction
+                    return '(' + processChildren(node.children[0]) + ')/(' + processChildren(node.children[1]) + ')';
+                case 'msqrt': // Square root
+                    return 'sqrt(' + processChildren(node) + ')';
+                case 'mroot': // nth root
+                    return 'root(' + processChildren(node.children[1]) + ')(' + processChildren(node.children[0]) + ')';
+                case 'mi': // Identifier, often used for variables
+                case 'mn': // Number
+                    return node.textContent;
+                case 'mo': // Operator
+                    return mapOperator(node.textContent);
+                case 'mrow': // Row of elements
+                    return processChildren(node);
+                case 'mfenced': // Parentheses or brackets
+                    return '(' + processChildren(node) + ')';
+                case 'mtable': // Table (e.g., matrices)
+                    return processTable(node);
+                case 'mtr': // Row inside table
+                    return processChildren(node, ',');
+                case 'mtd': // Cell inside a row
+                    return processChildren(node);
+                case 'mtext': // Text inside MathML
+                    return '"' + node.textContent + '"';
+                default:
+                    return processChildren(node);
+            }
+        }
+        return '';
+    }
 
-              case 'mfrac': {  // Handle fractions
-                  const numerator = convertMathMLToPlainText(mathElement.children[0]);
-                  const denominator = convertMathMLToPlainText(mathElement.children[1]);
-                  return `(${numerator}/${denominator})`; // Plain text fraction format
-              }
+    // Helper function to process all child nodes
+    function processChildren(node, separator = '') {
+        let result = [];
+        for (let child of node.childNodes) {
+            result.push(processNode(child));
+        }
+        return result.join(separator);
+    }
 
-              case 'msup': {  // Handle superscripts
-                  const base = convertMathMLToPlainText(mathElement.children[0]);
-                  const exponent = convertMathMLToPlainText(mathElement.children[1]);
-                  return `${base}^(${exponent})`;  // Superscript format: base^(exponent)
-              }
+    // Helper function to map MathML operators to AsciiMath equivalents
+    function mapOperator(op) {
+        const operatorMap = {
+            '+': '+',
+            '-': '-',
+            '*': '*',
+            '/': '/',
+            '=': '=',
+            '≠': '!=',
+            '<': '<',
+            '>': '>',
+            '≤': '<=',
+            '≥': '>=',
+            '∑': 'sum',
+            '∏': 'prod',
+            '∫': 'int',
+            '√': 'sqrt',
+            '∞': 'oo',
+            '∂': 'del',
+            '∇': 'grad',
+            'π': 'pi',
+            'θ': 'theta',
+            'α': 'alpha',
+            'β': 'beta',
+            'γ': 'gamma',
+            'δ': 'delta',
+            // Add more mappings as needed
+        };
+        return operatorMap[op] || op;
+    }
 
-              case 'msub': {  // Handle subscripts
-                  const base = convertMathMLToPlainText(mathElement.children[0]);
-                  const subscript = convertMathMLToPlainText(mathElement.children[1]);
-                  return `${base}_(${subscript})`;  // Subscript format: base_(subscript)
-              }
+    // Helper function to process a MathML table (e.g., for matrices)
+    function processTable(node) {
+        let rows = [];
+        for (let row of node.children) {
+            rows.push('[' + processNode(row) + ']');
+        }
+        return '[' + rows.join(',') + ']';
+    }
 
-              case 'msqrt': {  // Handle square roots
-                  const radicand = convertMathMLToPlainText(mathElement.children[0]);
-                  return `sqrt(${radicand})`;  // Square root: sqrt(radicand)
-              }
-
-              case 'mi':  // Identifiers (e.g., variables)
-              case 'mn':  // Numbers
-              case 'mo':  // Operators (e.g., +, -, *, /)
-                  return mathElement.textContent.trim();  // Return the plain content of the element
-
-              case 'munder': {  // Handle summation-like symbols (underscript)
-                  const base = convertMathMLToPlainText(mathElement.children[0]);
-                  const underscript = convertMathMLToPlainText(mathElement.children[1]);
-                  return `${base}_${underscript}`;  // Summation-like: base_underscript
-              }
-
-              case 'munderover': {  // Handle summation with both underscript and overscript
-                  const base = convertMathMLToPlainText(mathElement.children[0]);
-                  const underscript = convertMathMLToPlainText(mathElement.children[1]);
-                  const overscript = convertMathMLToPlainText(mathElement.children[2]);
-                  return `${base}_${underscript}^(${overscript})`;  // base_underscript^(overscript)
-              }
-
-              // Add more cases for other MathML elements as needed
-
-              default:
-                  return '';  // Return an empty string for unsupported elements
-          }
-      }
+    // Convert the MathML input (mathml can be a string or XML DOM element)
+    if (typeof mathml === 'string') {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(mathml, 'application/xml');
+        return processNode(xmlDoc.documentElement);
+    } else {
+        return processNode(mathml);
+    }
+}
+//-- 
 
         function parseAndConvertHTML(input) {
           // Step 1: Parse the input string as HTML
           const parser = new DOMParser();
           const doc = parser.parseFromString(input, 'text/html');
+          previewDiv.innerHTML = input;
 
           const mathElements = doc.querySelectorAll('math');
             mathElements.forEach(math => {
-                const plainMathText = convertMathMLToPlainText(math);
+                const plainMathText = mathmlToAsciiMath(math);
                 math.replaceWith(doc.createTextNode(plainMathText));
             });
           
           // Step 2: Replace block-level elements with a space before getting the text content
-          const blockElements = ['div', 'p', 'br', 'li', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol'];
+          const blockElements = ['div', 'p', 'br', 'li', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'form', 'head', 'label'];
           blockElements.forEach(tag => {
               doc.querySelectorAll(tag).forEach(el => el.replaceWith(' ' + el.textContent + ' '));
           });
@@ -116,7 +170,6 @@
           // Return the final result as a single line string
           return plainText;
         }
-
 
         function processPlain(input) {
           let cleanedData = input
@@ -159,18 +212,14 @@
         
 
 
-
-
-
-      
         // Add an event listener to update output when typing occurs in the input
         formulaInput.addEventListener('input', function () {
           // Output the cleaned and converted data
-          //formulaOutput.value = processPlain(formulaInput.value);
+          formulaOutput.value = parseAndConvertHTML(formulaInput.value);
         });
 
         formulaInput.addEventListener('focus', function(event) {
-          formulaInput.value = '';
+          //formulaInput.value = '';
         });
 
         formulaInput.addEventListener('paste', function(event) {

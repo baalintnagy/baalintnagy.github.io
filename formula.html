@@ -10,16 +10,16 @@
   </head>
   <body>
     <div class="container mt-4">
-      <h1>Clipboard reader/cleaner</h1>
+      <h3>Clipboard reader/cleaner</h3>
       <hr>
 
       <form>
         <div class="form-group mb-3">
-          <label for="formulaInput">Input:</label>
-          <textarea class="form-control" id="formulaInput" rows="10"></textarea>
+          <p><label for="formulaInput">Input:</label></p>
+          <textarea class="form-control" id="formulaInput" rows="8"></textarea>
         </div>
         <div class="form-group mb-3">
-          <label id ="formulaOutputLabel" for="formulaOutput">Output:</label>
+          <p><label id ="formulaOutputLabel" for="formulaOutput">Output:&nbsp;</label><span id="inputType">UNKNOWN</span></p>
           <textarea class="form-control" id="formulaOutput" rows="6"></textarea>
         </div>
         <hr>
@@ -33,11 +33,9 @@
         // Get references to the input and output elements
         const formulaInput = document.getElementById('formulaInput');
         const formulaOutput = document.getElementById('formulaOutput');
-        const formulaOutputLabel = document.getElementById('formulaOutputLabel');
+
+        const inputType = document.getElementById('inputType');
         const previewDiv = document.getElementById('previewDiv');
-
-        const FORMULA_OUTPUT_LABEL_PREFIX = "Output: ";
-
 
 //--
 function mathmlToAsciiMath(mathml) {
@@ -232,12 +230,13 @@ function mathmlToAsciiMath(mathml) {
             // If HTML is available, show it with formatting
             formulaInput.value = htmlData;
             formulaOutput.value = parseAndConvertHTML(htmlData);
-            formulaOutputLabel.textContent = FORMULA_OUTPUT_LABEL_PREFIX + 'HTML:';            
+            inputType.textContent = 'HTML';
+            
           } else {
             // If only plain text is available, append it to the output div
             formulaInput.value = plainText;
             formulaOutput.value = processPlain(plainText);
-            formulaOutputLabel.textContent = FORMULA_OUTPUT_LABEL_PREFIX + 'plain text:';            
+            inputType.textContent = 'PLAIN-TEXT';
           }
         });
       </script>

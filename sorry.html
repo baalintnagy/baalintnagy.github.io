@@ -40,6 +40,7 @@
         @keyframes combinedFlyInRotateSpiral {
             0% {
                 opacity: 0;
+				filter: blur(3px);
                 transform: 
                     translate(calc(-100vw * var(--direction-x)), calc(-100vh * var(--direction-y))) 
                     rotate(var(--start-angle, 0deg)) 
@@ -49,6 +50,7 @@
             }
             100% {
                 opacity: 1;
+				filter: blur(0px);
                 transform: 
                     translate(0, 0) 
                     rotate(0deg) 
@@ -118,7 +120,8 @@
             document.querySelectorAll('.fly-in').forEach((element) => {
                 element.classList.add('explode');
             });
-        }, 4000);
+        }, 
+		5500);
     </script>
 
 </body>

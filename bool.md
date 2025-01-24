@@ -8,10 +8,10 @@
 | 3     | 0011        | P                       | P         | P                                               | ¬P                      | ¬P             |
 | 4     | 0100        | Converse Nonimplication | ¬P /→ Q   | ¬P ∧ Q <br> (P ∨ Q) ∧ (¬P ∨ Q) ∧ (¬P ∨ ¬Q)      | Implication             | P → Q          |
 | 5     | 0101        | Q                       | Q         | Q                                               | NOT Q                   | ¬Q             |
-| 6     | 0110        | XOR                     | P ⊕ Q    | ¬P ∧ Q ∨ P ∧ ¬Q <br> (P ∨ Q) ∧ (¬P ∨ ¬Q)        | XNOR                    | P ↔ Q          |
+| 6     | 0110        | XOR                     | P ⊕ Q    | ¬P ∧ Q ∨ P ∧ ¬Q <br> (P ∨ Q) ∧ (¬P ∨ ¬Q)        | XNOR                    | P = Q          |
 | 7     | 0111        | OR                      | P ∨ Q     | ¬P ∧ Q ∨ P ∧ ¬Q ∨ P ∧ Q <br> (P ∨ Q)            | NOR                     | P ↓ Q          |
 | 8     | 1000        | NOR                     | P ↓ Q     | ¬P ∧ ¬Q <br> (P ∨ ¬Q) ∧ (¬P ∨ Q) ∧ (¬P ∨ ¬Q)    | OR                      | P ∨ Q          |
-| 9     | 1001        | XNOR                    | P ↔ Q     | ¬P ∧ ¬Q ∨ P ∧ Q <br> (P ∨ ¬Q) ∧ (¬P ∨ Q)        | XOR                     | P ⊕ Q         |
+| 9     | 1001        | XNOR                    | P = Q     | ¬P ∧ ¬Q ∨ P ∧ Q <br> (P ∨ ¬Q) ∧ (¬P ∨ Q)        | XOR                     | P ⊕ Q         |
 | 10    | 1010        | NOT Q                   | ¬Q        | ¬Q                                              | Q                       | Q              |
 | 11    | 1011        | Converse Implication    | P ← Q     | ¬P ∧ ¬Q ∨ P ∧ ¬Q ∨ P ∧ Q <br> (P ∨ ¬Q)          | Nonimplication          | P /→ ¬Q        |
 | 12    | 1100        | NOT P                   | ¬P        | ¬P                                              | P                       | P              |

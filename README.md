@@ -23,7 +23,7 @@ While my proficiency is predominantly in backend development, I am always willin
 
 ## PROFESSIONAL EXPERIENCE
 
-### *2025. January  – 2025. July* – Blackrock
+### *2025. January  – 2025. July* – BlackRock
  
  **Senior Software Engineer**
 
@@ -114,6 +114,7 @@ Delegated by Grafinit LLC
 - Flyway
 - Redis
 - Elasticsearch
+- Kafka Streams
 - Cassandra
 - Kubernetes
 - GitLab CI
@@ -139,6 +140,7 @@ Delegated by Grafinit LLC
 - Liquibase
 - Redis
 - Elasticsearch
+- Kibana
 - Docker
 - Jenkins
 
@@ -164,7 +166,6 @@ Delegated by QualySoft
 - Liquibase
 - Active MQ
 - SolR
-- Cassandra
 - Jenkins
 
 
@@ -201,7 +202,7 @@ Delegated by QualySoft
 - AspectJ
 - UML 2.0
 
-### TECHNICAL SKILLS
+## TECHNICAL SKILLS
 
 #### Languages & Platforms
 

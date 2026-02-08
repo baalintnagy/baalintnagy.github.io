@@ -1,9 +1,9 @@
 
-# Semitone Vector Chord/Voicing Notation (SVCvN)
+# Semitone Vector Chord/Voicing Notation (***SVCvN***)
 
 ## 1. Purpose
 
-Semitone Vector Chord/Voicing Notation (SVCvN) is a compact representation of chords and voicings.
+Semitone Vector Chord/Voicing Notation (***SVCvN***) is a compact representation of chords and voicings.
 
 The goals are:
 
@@ -20,11 +20,11 @@ Traditional chord notation encodes harmonic interpretation but often omits voici
 
 A chord is represented as:
 
-Root[vector]
+`Root[vector]`
 
 Example:
 
-C[0,4,7]
+**C[0,4,7]**
 
 ### Meaning
 
@@ -45,10 +45,10 @@ Octave displacement is indicated using the dot operator (·).
 
 | Form | Meaning |
 |------|--------|
-| ·n | pitch class n, one octave below |
-| n· | pitch class n, one octave above |
-| ··n | two octaves below |
-| n·· | two octaves above |
+| `·n` | pitch class **n**, one octave below |
+| `n·` | pitch class **n**, one octave above |
+| `··n` | two octaves below |
+| `n··` | two octaves above |
 
 This allows all values to remain in the 0–11 range without using negative numbers or large integers.
 
@@ -62,14 +62,16 @@ The lowest pitch the bass...
 
 Example:
 
+```c
 C[·4,0,7]
+```
 
-Bass: E below C  
-Chord tones: E–C–G
+Bass: **E** below **C**  
+Chord tones: **E–C–G**
 
 Equivalent traditional notation:
 
-C/E
+**C/E**
 
 ---
 
@@ -77,53 +79,63 @@ C/E
 
 ### Major Triad
 
+```c
 C[0,4,7]
+```
 
 Traditional:
 
-C
+**C**
 
 ---
 
 ### Minor Seventh
 
+```c
 A[0,3,7,10]
+```
 
 Traditional:
 
-Am7
+**Am7**
 
 ---
 
 ### Major Ninth
 
+```c
 C[0,4,7,11,2·]
+```
 
 Traditional:
 
-Cmaj9
+**Cmaj9**
 
 ---
 
 ### Lydian Voicing With Bass
 
+```c
 C[·4,0,2,7,11,6·]
+```
 
 Decoded tones:
 
-- E below root
-- C, D, G, B
-- F# above
+- **E** below root
+- **C**, **D**, **G**, **B**
+- **F#** above
 
 Traditional approximation:
 
-Cmaj9(#11)/E
+**Cmaj9(#11)/E**
 
 ---
 
 ### Dense Cluster Example
 
+```c
 C[0,1,2,3,4]
+```
 
 Traditional notation:
 
@@ -135,36 +147,31 @@ No concise equivalent; typically written in staff notation.
 
 ### 6.1 Voicing Is Explicit
 
-Traditional:
-
-Cmaj7
+Traditional: **Cmaj7**
 
 Ambiguous:
 - Which inversion?
 - Which spacing?
 - Is the 5th present?
 
-SVCvN:
+***SVCvN***:
 
+```c
 C[·11,0,4,7]
-
-Traditional:
-
-Cmaj7/B
-
-Exact pitches known: B C E G
+```
+Exact pitches known: **B-C-E-G** (Traditional might be: **Cmaj7/B**)
 
 ---
 
 ### 6.2 No Naming Explosion
 
-Traditional chord names can become long and irregular:
+Traditional chord names can become long and irregular: **Cmaj7(#11,add9,no5)/E**
 
-Cmaj7(#11,add9,no5)/E
+***SVCvN***:
 
-SVCvN:
-
+```c
 C[·4,0,2,11,6·]
+```
 
 Shorter and structurally clearer.
 
@@ -192,13 +199,13 @@ Traditional notation mixes:
 
 Example:
 
-C6
+**C6**
 
 Could function as:
-- C6
-- Am7/C
+- **C6**
+- **Am7/C**
 
-SVCvN encodes only the pitches, not interpretation.
+***SVCvN*** encodes only the pitches, not interpretation.
 
 ---
 
@@ -208,7 +215,9 @@ Quartal or cluster chords require no special naming.
 
 Example:
 
+```c
 C[0,5,10]
+```
 
 ---
 
@@ -217,31 +226,25 @@ C[0,5,10]
 Traditional chord notation sometimes produces cognitive ambiguity when
 extensions depend on theoretical spelling rather than actual pitch.
 
-Example:
+Example: **Fmaj7(9,#11)**
 
-Fmaj7(9,#11)
+The **#11** corresponds to **B** natural.  
+However, **B** is already a white key, and the sharp is only theoretical
+(raised fourth degree of **F**). This can feel confusing in practice.
 
-The #11 corresponds to B natural.  
-However, B is already a white key, and the sharp is only theoretical
-(raised fourth degree of F). This can feel confusing in practice.
+If written as: **Fmaj7(9,11)**
 
-If written as:
+Many musicians will instinctively play: **F-A-C-E-G-B**
 
-Fmaj7(9,11)
-
-Many musicians will instinctively play:
-
-F A C E G B
-
-instead of the theoretically correct:
-
-F A C E G Bb
+instead of the theoretically correct: **F-A-C-E-G-Bb**
 
 The chord symbol relies on interpretation and stylistic expectation.
 
-SVCvN expresses the pitches directly:
+***SVCvN*** expresses the pitches directly:
 
+```c
 F[0,4,7,11,2·,6·]
+```
 
 No enharmonic reasoning or interval reinterpretation is required.
 The pitch content is explicit and unambiguous.
@@ -258,7 +261,7 @@ Musicians accustomed to scale degrees may need practice to map semitone numbers 
 
 ### 7.2 Enharmonic Spelling Is Not Represented
 
-Pitch classes do not distinguish F# vs Gb.  
+Pitch classes do not distinguish **F#** vs **Gb**.  
 This is a deliberate design tradeoff.
 
 ### 7.3 Simple vs complex chords:
@@ -266,10 +269,12 @@ This is a deliberate design tradeoff.
 For simple chords, traditional notation is shorter:
 
 Traditional:
-C
+**C**
 
-SVCvN:
+***SVCvN***:
+```c
 C[0,4,7]
+```
 
 In these cases, SVCvN is more verbose and provides little immediate benefit.
 
@@ -279,14 +284,15 @@ linearly and remains structurally clear.
 
 Example:
 
-Traditional:
-Cmaj7(9,#11,13,no5)/E.
+Traditional: **Cmaj7(9,#11,13,no5)/E.**
 
-SVCvN:
+***SVCvN***:
+```c
 C[·4,0,2,11,6·,9·]
+```
 
 
-In SVCvN, pitch content is explicit and independent of naming
+In ***SVCvN***, pitch content is explicit and independent of naming
 conventions, making dense or non-tertian chords easier to read,
 compare, and process.
 
@@ -294,7 +300,7 @@ compare, and process.
 
 ## 9. Summary
 
-SVCvN represents chords as:
+***SVCvN*** represents chords as:
 
 - Root
 - Pitch-class vector

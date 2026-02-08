@@ -20,11 +20,15 @@ Traditional chord notation encodes harmonic interpretation but often omits voici
 
 A chord is represented as:
 
-`Root[vector]`
+```
+Root[vector]
+```
 
 Example:
 
-**C[0,4,7]**
+```c
+C[0,4,7]
+```
 
 ### Meaning
 

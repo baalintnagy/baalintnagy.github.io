@@ -24,9 +24,9 @@ class CVTemplateEngine {
                 <div class="contact-section">
                     <div class="contact-info">
                         <i class="bi bi-telephone"></i>
-                        <a href="#" id="bfoo" class="contact-item">${data.basics.phone}</a>
+                        <span id="bfoo" class="contact-item">${data.basics.phone}</span>
                         <i class="bi bi-envelope"></i>
-                        <a href="#" id="bbar" class="contact-item">${data.basics.email}</a>
+                        <span id="bbar" class="contact-item">${data.basics.email}</span>
                         <i class="bi bi-globe"></i>
                         <a href="${data.basics.website}" target="_blank" class="contact-item">${data.basics.website}</a>
                     </div>
@@ -252,25 +252,39 @@ class CVTemplateEngine {
         const e = document.getElementById('bbar');
 
         if (p) {
-            p.addEventListener('mouseenter', async function() {
-                this.textContent = await dec('QD13Dka9baU0F9BJJTpk5D3IsahwFdTuWV+lmaYHFsU=', mailUrl);
-                this.href = await dec('FtgICY666gf2UY5I4ptEbAIMr+CqhwPVMbMNXP4YZsY=', mailUrl);
-            });
-            p.addEventListener('focus', async function() {
-                this.textContent = await dec('QD13Dka9baU0F9BJJTpk5D3IsahwFdTuWV+lmaYHFsU=', mailUrl);
-                this.href = await dec('FtgICY666gf2UY5I4ptEbAIMr+CqhwPVMbMNXP4YZsY=', mailUrl);
-            });
+            const reveal_bfoo = async () => {
+                const text = await dec('QD13Dka9baU0F9BJJTpk5D3IsahwFdTuWV+lmaYHFsU=', mailUrl);
+                const href = await dec('FtgICY666gf2UY5I4ptEbAIMr+CqhwPVMbMNXP4YZsY=', mailUrl);
+                
+                const anchor = document.createElement('a');
+                anchor.href = href;
+                anchor.textContent = text;
+                anchor.className = 'contact-item';
+                anchor.id = 'bfoo';
+                
+                p.parentNode.replaceChild(anchor, p);
+            };
+
+            p.addEventListener('mouseenter', reveal_bfoo);
+            p.addEventListener('focus', reveal_bfoo);
         }
 
         if (e) {
-            e.addEventListener('mouseenter', async function() {
-                this.textContent = await dec('fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=', mailUrl);
-                this.href = await dec('//wO3oyArSSKk6+PEb8mN3db2Xud5hPT1t+52XFW4AY=', mailUrl);
-            });
-            e.addEventListener('focus', async function() {
-                this.textContent = await dec('fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=', mailUrl);
-                this.href = await dec('//wO3oyArSSKk6+PEb8mN3db2Xud5hPT1t+52XFW4AY=', mailUrl);
-            });
+            const reveal_bbar = async () => {
+                const text = await dec('fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=', mailUrl);
+                const href = await dec('//wO3oyArSSKk6+PEb8mN3db2Xud5hPT1t+52XFW4AY=', mailUrl);
+                
+                const anchor = document.createElement('a');
+                anchor.href = href;
+                anchor.textContent = text;
+                anchor.className = 'contact-item';
+                anchor.id = 'bbar';
+                
+                e.parentNode.replaceChild(anchor, e);
+            };
+
+            e.addEventListener('mouseenter', reveal_bbar);
+            e.addEventListener('focus', reveal_bbar);
         }
     }
 }

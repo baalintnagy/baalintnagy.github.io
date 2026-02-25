@@ -102,8 +102,13 @@
 
 [data-theme="dark"] .tech-tag,
 [data-theme="dark"] .skill-tag {
-    background: var(--accent-color);
+    background: rgba(0, 0, 0, 0.4);
     color: var(--text-primary);
+}
+
+[data-theme="dark"] .tech-tag:hover,
+[data-theme="dark"] .skill-tag:hover {
+    background: rgba(0, 0, 0, 0.6);
 }
 
 [data-theme="dark"] .skill-progress {

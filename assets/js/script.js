@@ -70,42 +70,38 @@ async function dec(ciphertextBase64, passkey) {
     return arrayBufferToString(decrypted);
 }
 
-var rPHO;
-var rPHIL;
-var rEML;
-var rEMLL;
-
-async function init() {
-    const mailUrl = 'https://mail.google.com';
-
-    rPHO = await dec('QD13Dka9baU0F9BJJTpk5D3IsahwFdTuWV+lmaYHFsU=', mailUrl);
-    rPHIL = await dec('FtgICY666gf2UY5I4ptEbAIMr+CqhwPVMbMNXP4YZsY=', mailUrl);
-
-    rEML = await dec('fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=', mailUrl);
-    rEMLL = await dec('//wO3oyArSSKk6+PEb8mN3db2Xud5hPT1t+52XFW4AY=', mailUrl);
-}
-
-init();
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    var p = document.getElementById('PHO');
-    var e = document.getElementById('EML');
+/*
+document.addEventListener("DOMContentLoaded", () => {
+  const pass = "https://mail.google.com";
 
-    p.addEventListener('mouseenter', function() {
-        this.textContent = rPHO;
-        this.href = rPHIL;
-    });
-    p.addEventListener('focus', function() {
-        this.textContent = rPHO;
-        this.href = rPHIL;
-    });
-    e.addEventListener('mouseenter', function() {
-        this.textContent = rEML;
-        this.href = rEMLL;
-    });
-    e.addEventListener('focus', function() {
-        this.textContent = rEML;
-        this.href = rEMLL;
-    });
+  async function reveal(a) {
+    const text = await dec(a.dataset.ctText, pass);
+    const href = await dec(a.dataset.ctHref, pass);
+
+    a.textContent = text;
+    a.href = href;
+
+    // Optional: remove ciphertext to shrink surface
+    delete a.dataset.ctText;
+    delete a.dataset.ctHref;
+
+    // Optional: remove listeners so it runs only once
+    a.removeEventListener("mouseenter", handler);
+    a.removeEventListener("focus", handler);
+  }
+
+  function handler(e) {
+    reveal(e.currentTarget);
+  }
+
+  for (const id of ["PHO", "EML"]) {
+    const a = document.getElementById(id);
+    if (!a) continue;
+
+    a.addEventListener("mouseenter", handler);
+    a.addEventListener("focus", handler);
+  }
 });
+*/

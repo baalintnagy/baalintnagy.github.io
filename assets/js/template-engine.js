@@ -24,9 +24,9 @@ class CVTemplateEngine {
                 <div class="contact-section">
                     <div class="contact-info">
                         <i class="bi bi-telephone"></i>
-                        <a href="#" id="PHO" class="contact-item">${data.basics.phone}</a>
+                        <a href="#" id="bfoo" class="contact-item">${data.basics.phone}</a>
                         <i class="bi bi-envelope"></i>
-                        <a href="#" id="EML" class="contact-item">${data.basics.email}</a>
+                        <a href="#" id="bbar" class="contact-item">${data.basics.email}</a>
                         <i class="bi bi-globe"></i>
                         <a href="${data.basics.website}" target="_blank" class="contact-item">${data.basics.website}</a>
                     </div>
@@ -247,43 +247,31 @@ class CVTemplateEngine {
     }
 
     setupDecryptionHandlers() {
-        // Wait for the global decryption variables to be available
-        const checkAndSetup = () => {
-            if (typeof rPHO !== 'undefined' && typeof rPHIL !== 'undefined' && 
-                typeof rEML !== 'undefined' && typeof rEMLL !== 'undefined') {
-                
-                const p = document.getElementById('PHO');
-                const e = document.getElementById('EML');
+        const mailUrl = 'https://mail.google.com';
+        const p = document.getElementById('bfoo');
+        const e = document.getElementById('bbar');
 
-                if (p) {
-                    p.addEventListener('mouseenter', function() {
-                        this.textContent = rPHO;
-                        this.href = rPHIL;
-                    });
-                    p.addEventListener('focus', function() {
-                        this.textContent = rPHO;
-                        this.href = rPHIL;
-                    });
-                }
+        if (p) {
+            p.addEventListener('mouseenter', async function() {
+                this.textContent = await dec('QD13Dka9baU0F9BJJTpk5D3IsahwFdTuWV+lmaYHFsU=', mailUrl);
+                this.href = await dec('FtgICY666gf2UY5I4ptEbAIMr+CqhwPVMbMNXP4YZsY=', mailUrl);
+            });
+            p.addEventListener('focus', async function() {
+                this.textContent = await dec('QD13Dka9baU0F9BJJTpk5D3IsahwFdTuWV+lmaYHFsU=', mailUrl);
+                this.href = await dec('FtgICY666gf2UY5I4ptEbAIMr+CqhwPVMbMNXP4YZsY=', mailUrl);
+            });
+        }
 
-                if (e) {
-                    e.addEventListener('mouseenter', function() {
-                        this.textContent = rEML;
-                        this.href = rEMLL;
-                    });
-                    e.addEventListener('focus', function() {
-                        this.textContent = rEML;
-                        this.href = rEMLL;
-                    });
-                }
-            } else {
-                // Try again in 100ms if decryption variables aren't ready yet
-                setTimeout(checkAndSetup, 100);
-            }
-        };
-
-        // Start checking after a short delay to ensure decryption script has time to initialize
-        setTimeout(checkAndSetup, 200);
+        if (e) {
+            e.addEventListener('mouseenter', async function() {
+                this.textContent = await dec('fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=', mailUrl);
+                this.href = await dec('//wO3oyArSSKk6+PEb8mN3db2Xud5hPT1t+52XFW4AY=', mailUrl);
+            });
+            e.addEventListener('focus', async function() {
+                this.textContent = await dec('fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=', mailUrl);
+                this.href = await dec('//wO3oyArSSKk6+PEb8mN3db2Xud5hPT1t+52XFW4AY=', mailUrl);
+            });
+        }
     }
 }
 

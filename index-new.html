@@ -90,6 +90,9 @@
                 
                 // Add some animation to skill bars
                 this.animateSkillBars();
+                
+                // Setup profile picture switching
+                this.setupProfilePictureSwitch();
             }
 
             animateSkillBars() {
@@ -108,6 +111,27 @@
                 });
 
                 skillBars.forEach(bar => observer.observe(bar));
+            }
+
+            setupProfilePictureSwitch() {
+                const profileImage = document.querySelector('.profile-image');
+                if (!profileImage) return;
+
+                const images = ['assets/images/profile.png', 'assets/images/profile.jpeg'];
+                let currentIndex = 0;
+
+                profileImage.style.cursor = 'pointer';
+                profileImage.title = 'Click to switch profile picture';
+
+                profileImage.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    profileImage.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        profileImage.src = images[currentIndex];
+                        profileImage.style.opacity = '1';
+                    }, 150);
+                });
             }
 
             hideLoading() {
@@ -191,6 +215,10 @@
 
         .error button:hover {
             background: #1e40af;
+        }
+
+        .profile-image {
+            transition: opacity 0.15s ease-in-out;
         }
     </style>
 </body>

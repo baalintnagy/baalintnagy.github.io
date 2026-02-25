@@ -18,8 +18,8 @@ class CVTemplateEngine {
             <header class="cv-header">
                 <div class="profile-section">
                     <img src="${data.basics.image}" alt="${data.basics.name}" class="profile-image">
-                    <h1 class="name">${data.basics.name}</h1>
-                    <p class="title">${data.basics.label}</p>
+                    <h1 class="name text-uppercase">${data.basics.name}</h1>
+                    <p class="title text-uppercase">${data.basics.label}</p>
                 </div>
                 <div class="contact-section">
                     <div class="contact-info">

@@ -33,10 +33,10 @@
     font-size: 16px;
 }
 
-/* Dark Theme Variables */
+/* Dark Theme Variables - Exact colors from original risen.css */
 [data-theme="dark"] {
     --primary-color: #fe655c;
-    --secondary-color: #9ebee6;
+    --secondary-color: #4f6591;
     --accent-color: #8497bc;
     --background-color: #19202e;
     --surface-color: #28344a;
@@ -71,7 +71,7 @@
 
 [data-theme="dark"] .contact-item:hover,
 [data-theme="dark"] .social-link:hover {
-    color: var(--secondary-color);
+    color: #9ebee6;
 }
 
 [data-theme="dark"] .social-link {
@@ -111,11 +111,11 @@
 }
 
 [data-theme="dark"] .education-institution a {
-    color: var(--secondary-color);
+    color: #9ebee6;
 }
 
 [data-theme="dark"] .education-institution a:hover {
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
 [data-theme="dark"] .language-indicator {

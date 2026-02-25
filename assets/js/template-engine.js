@@ -150,11 +150,11 @@ class CVTemplateEngine {
     renderSkill(skill) {
         return `
             <div class="skill-item">
-                <div class="skill-name">${skill.name}</div>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: ${skill.proficiencyPercent}%"></div>
+                <div class="skill-name" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%">${skill.name}</div>
+                <div class="skill-bar" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%">
+                    <div class="skill-progress" style="width: ${skill.proficiencyPercent}%" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%"></div>
                 </div>
-                <div class="skill-level">${skill.proficiencyPercent}%</div>
+                <div class="print-only skill-level">${skill.proficiencyPercent}%</div>
             </div>
         `;
     }

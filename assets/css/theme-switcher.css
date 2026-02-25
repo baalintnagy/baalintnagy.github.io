@@ -33,10 +33,10 @@
     font-size: 16px;
 }
 
-/* Dark Theme Variables - Exact colors from original risen.css */
+/* Dark Theme Variables - Updated colors for better dark theme experience */
 [data-theme="dark"] {
-    --primary-color: #fe655c;
-    --secondary-color: #4f6591;
+    --primary-color: #4f8cc9;
+    --secondary-color: #6b7c93;
     --accent-color: #8497bc;
     --background-color: #19202e;
     --surface-color: #28344a;
@@ -170,7 +170,7 @@
 }
 
 [data-theme="dark"] .theme-toggle:hover {
-    background: #fe4d43;
+    background: #3d7ab8;
 }
 
 /* Responsive adjustments for theme toggle */

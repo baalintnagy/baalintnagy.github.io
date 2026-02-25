@@ -261,7 +261,7 @@ body {
 }
 
 .tech-tag {
-    background: var(--accent-color);
+    background: var(--secondary-color);
     color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
@@ -282,7 +282,7 @@ body {
     font-size: 1rem;
     font-weight: 600;
     margin: 0 0 1rem 0;
-    color: var(--text-primary);
+    color: var(--primary-color);
 }
 
 .skill-items {
@@ -567,4 +567,14 @@ body {
 
 .letter-spacing-lg {
     letter-spacing: 0.5rem !important;
+}
+
+.print-only {
+    display: none;
+}
+
+@media print {
+    .print-only {
+        display: block;
+    }
 }

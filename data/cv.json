@@ -225,7 +225,7 @@
       {
         "group": "Languages & Platforms",
         "items": [
-          { "name": "Java", "proficiencyPercent": 100 },
+          { "name": "Java", "proficiencyPercent": 95 },
           { "name": "Spring, Spring Boot", "proficiencyPercent": 90 },
           { "name": "AspectJ", "proficiencyPercent": 80 },
           { "name": "ORM, JPA/Hibernate", "proficiencyPercent": 80 },

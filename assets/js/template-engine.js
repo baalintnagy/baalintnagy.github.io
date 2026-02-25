@@ -18,8 +18,8 @@ class CVTemplateEngine {
             <header class="cv-header">
                 <div class="profile-section">
                     <img src="${data.basics.image}" alt="${data.basics.name}" class="profile-image">
-                    <h1 class="name text-uppercase">${data.basics.name}</h1>
-                    <p class="title text-uppercase">${data.basics.label}</p>
+                    <h1 class="name text-uppercase letter-spacing-lg">${data.basics.name}</h1>
+                    <p class="title text-uppercase letter-spacing-md">${data.basics.label}</p>
                 </div>
                 <div class="contact-section">
                     <div class="contact-info">
@@ -44,7 +44,7 @@ class CVTemplateEngine {
         // Summary template
         this.registerTemplate('summary', (data) => `
             <section class="cv-section summary-section">
-                <h2 class="section-title">
+                <h2 class="section-title letter-spacing-sm">
                     <i class="bi bi-person"></i> About Me
                 </h2>
                 <div class="summary-content">
@@ -56,7 +56,7 @@ class CVTemplateEngine {
         // Experience template
         this.registerTemplate('experience', (data) => `
             <section class="cv-section experience-section">
-                <h2 class="section-title">
+                <h2 class="section-title letter-spacing-sm">
                     <i class="bi bi-briefcase"></i> Professional Experience
                 </h2>
                 <div class="experience-timeline">
@@ -68,7 +68,7 @@ class CVTemplateEngine {
         // Skills template
         this.registerTemplate('skills', (data) => `
             <section class="cv-section skills-section">
-                <h2 class="section-title">
+                <h2 class="section-title letter-spacing-sm">
                     <i class="bi bi-gear"></i> Technical Skills
                 </h2>
                 <div class="skills-content">
@@ -86,7 +86,7 @@ class CVTemplateEngine {
         // Education template
         this.registerTemplate('education', (data) => `
             <section class="cv-section education-section">
-                <h2 class="section-title">
+                <h2 class="section-title letter-spacing-sm">
                     <i class="bi bi-book"></i> Education
                 </h2>
                 <div class="education-content">
@@ -98,7 +98,7 @@ class CVTemplateEngine {
         // Languages template
         this.registerTemplate('languages', (data) => `
             <section class="cv-section languages-section">
-                <h2 class="section-title">
+                <h2 class="section-title letter-spacing-sm">
                     <i class="bi bi-translate"></i> Languages
                 </h2>
                 <div class="languages-content">

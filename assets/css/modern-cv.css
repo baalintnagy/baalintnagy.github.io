@@ -552,3 +552,19 @@ body {
 .text-uppercase {
     text-transform: uppercase !important;
 }
+
+.letter-spacing-xs {
+    letter-spacing: 0.05rem !important;
+}
+
+.letter-spacing-sm {
+    letter-spacing: 0.15rem !important;
+}
+
+.letter-spacing-md {
+    letter-spacing: 0.25rem !important;
+}
+
+.letter-spacing-lg {
+    letter-spacing: 0.5rem !important;
+}

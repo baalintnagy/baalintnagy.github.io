@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bálint Nagy CV</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bálint Nagy CV - Senior Software Engineer">
+    <meta name="author" content="Bálint Nagy">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Modern CV Styles -->
+    <link rel="stylesheet" href="assets/css/modern-cv.css">
+</head>
+<body>
+    <div id="cv-app">
+        <div class="loading">
+            <i class="bi bi-hourglass-split"></i>
+            <p>Loading CV...</p>
+        </div>
+    </div>
+
+    <!-- Template Engine -->
+    <script src="assets/js/template-engine.js"></script>
+
+    <!-- Auxiliary scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+    <script src="assets/js/script.js"></script>
+    
+    <!-- CV Application -->
+    <script>
+        // Embedded CV data for local development
+        const embeddedCVData = {"meta":{"source":{"type":"html","title":"Bálint Nagy CV"}},"basics":{"name":"Bálint Nagy","label":"Software Engineer","image":"assets/images/profile.png","website":"https://baalintnagy.github.io","email":"**********************","phone":"**********************","profiles":[{"network":"LinkedIn","url":"https://www.linkedin.com/in/b%C3%A1lint-nagy-542803164/"},{"network":"GitHub","url":"https://github.com/baalintnagy"},{"network":"GitLab","url":"https://gitlab.com/baalint.nagy"}]},"summary":["From about the age of 15, I have been deeply passionate about software development and computational problem-solving. This early start laid the foundation for what would lead to gaining a Master's degree in Software Engineering and a career in the realm of IT.","My specialization leans heavily towards backend development, with a particular emphasis on Java — having witnessed the evolution of JDK from 1.4 to 21. My expertise consists of technologies like Spring and Spring Boot, microservices architecture, ORM: JPA/Hibernate, and a variety of RDBMS databases such as MySQL/MariaDB, PostgreSQL and Oracle, alongside NoSQL solutions like Elasticsearch, MongoDB, Redis, and Cassandra.","Additionally, I'm experienced in message streaming solutions like Apache Kafka, and fluent in utilizing tools like Git, Jenkins, GitLab CI/CD, as well as Docker/Kubernetes for containerization and orchestration.","While my proficiency is predominantly in backend development, I am always willing and capable of learning and adapting to new technologies"],"work":[{"company":"BlackRock","position":"Senior Software Engineer","employmentType":"Delegated/Contract","vendor":"Bluebird international Zrt.","start":"2024-09","end":"2025-07","highlights":["Developed features based on user stories and maintained a high-risk legacy codebase.","Contributed to modernization efforts by porting parts of the application to newer technologies and improving code quality."],"technologies":["Java 17","Spring Boot","Microservices","JPA/Hibernate","Sybase ASA","Apache Kafka","Cassandra"]},{"company":"Hellmann Worldwide Logistics","position":"Senior Software Engineer","employmentType":"Delegated/Contract","vendor":"Grafinit LLC","start":"2023-07","end":"2024-12","highlights":["Designed and implemented modules for an internal Salesperson Commission Calculation System, addressing diverse regional requirements (IMEA, AMCS, etc.).","Planned and carried out the migration of legacy systems to newer technologies, including the transition from monolith to microservices."],"technologies":["Java 21","Java 15","Spring Boot","Microservices","JPA/Hibernate","Oracle DB","Liquibase","Elasticsearch","Kibana","Docker","Docker Swarm","GitLab CI"]},{"company":"LANCOM Systems GmbH.","position":"Senior Java Developer","employmentType":"Delegated/Contract","vendor":"Grafinit LLC","start":"2023-01","end":"2023-06","highlights":["Designed and implemented features in the Licensing module of the LANCOM Management Cloud (LMC).","Upgraded and optimized parts of the legacy codebase to improve maintainability and performance."],"technologies":["Java 17","Spring Boot","Microservices","JPA/Hibernate","PostgreSQL","Liquibase","Redis","Elasticsearch","Kibana","Kubernetes","GitLab CI"]},{"company":"Starschema","position":"Senior Software Developer","start":"2018","end":"2022","highlights":["Designed and developed microservice-based data transformation systems using Kafka Streams.","Contributed to the backend modules of a container transportation management platform.","Occasionally managed cloud deployment and configurations on AWS."],"technologies":["Java 8","Java 11","Spring Boot","Microservices","WebFlux","JPA/Hibernate","PostgreSQL","Flyway","Redis","Elasticsearch","Kafka Streams","Cassandra","Kubernetes","GitLab CI","Jenkins"]},{"company":"Oncompass Medicine","position":"Senior Java Developer","start":"2015","end":"2018","highlights":["Designed and implemented modules of a diagnostic decision support system for cancer treatment, based on genetic profiles.","Participated in architectural design and detailed planning of features and workflows.","Developed internal frameworks and extensible utilities to support developer workflows, including custom validators and generic component patterns."],"technologies":["Java 8","Spring Boot","Microservices","JPA/Hibernate","MariaDB/MySQL","Liquibase","Redis","Elasticsearch","Kibana","Docker","Jenkins"]},{"company":"Porsche Informatik GmbH.","project":"CrossNG","position":"Software Engineer","employmentType":"Delegated/Contract","vendor":"QualySoft","start":"2013","end":"2015","highlights":["Designed and implemented modules for the CrossNG application used in international vehicle logistics.","Participated in planning and effort estimation of user stories within a distributed team."],"technologies":["Java 7","Java 8","Spring Boot","Microservices","Tapestry","JPA/Hibernate","Oracle DB","Liquibase","Active MQ","SolR","Jenkins"]},{"company":"InfomatiX","division":"Enterprise Mobility Division","position":"Software Developer","start":"2012","end":"2013","highlights":["Designed and implemented a cross-platform mobile development framework, including a custom language and IDE based on the NetBeans platform.","Developed backend applications using Microsoft .NET (C#) serving enterprise mobile clients.","Contributed to both cross-platform and native Android product development, from design to implementation."],"technologies":["Java 6","Netbeans Platform","MS-SQL","SQLite","Android SDK",".NET (C#)"]},{"company":"Freelancer","position":"Java and AspectJ Developer","start":"2011","end":"2012","highlights":["Developed prototypes using AspectJ, exploring Aspect-Oriented Programming.","Investigated UML-to-AOP code generation: designed custom UML profiles and implemented a tree-based, aspect-oriented code generation framework."],"technologies":["Java 5","AspectJ","UML 2.0"]}],"skills":{"technical":[{"group":"Languages & Platforms","items":[{"name":"Java","proficiencyPercent":100},{"name":"Spring, Spring Boot","proficiencyPercent":90},{"name":"AspectJ","proficiencyPercent":80},{"name":"ORM, JPA/Hibernate","proficiencyPercent":80},{"name":"C/C++","proficiencyPercent":40},{"name":"C#","proficiencyPercent":50},{"name":"Python","proficiencyPercent":30}]},{"group":"Relational Databases","items":[{"name":"MySQL/MariaDB","proficiencyPercent":70},{"name":"PostgreSQL","proficiencyPercent":70},{"name":"Oracle","proficiencyPercent":60}]},{"group":"NoSQL Databases","items":[{"name":"Elasticsearch","proficiencyPercent":70},{"name":"MongoDB","proficiencyPercent":60},{"name":"Cassandra","proficiencyPercent":60}]},{"group":"DevOps & Tooling","items":[{"name":"Git","proficiencyPercent":80},{"name":"Jenkins","proficiencyPercent":70},{"name":"GitLab & CI/CD","proficiencyPercent":70},{"name":"Docker","proficiencyPercent":80},{"name":"Kubernetes","proficiencyPercent":50}]}],"soft":["Problem Solving","Adaptability","Creativity","Resilience"]},"education":[{"institution":"Budapest University of Technology and Economics","url":"https://www.bme.hu/?language=en","area":"Software Engineering","studyType":"Master's Degree","department":"Faculty of Electrical Engineering and Informatics","major":"System Integration","start":"2003","end":"2010"}],"languages":[{"language":"Hungarian","fluency":"native","indicator":{"full":10,"half":0,"empty":0,"scale":10}},{"language":"English","fluency":"fluent","indicator":{"full":9,"half":1,"empty":0,"scale":10}},{"language":"German","fluency":"passive","indicator":{"full":1,"half":1,"empty":8,"scale":10}}],"extras":{"footerLink":{"label":"`(x^2+y^2-1)^3=x^2y^2`","url":"https://www.desmos.com/calculator/fyuytkhncd"}}};
+
+        class CVApplication {
+            constructor() {
+                this.templateEngine = new CVTemplateEngine();
+                this.cvData = null;
+                this.init();
+            }
+
+            async init() {
+                try {
+                    await this.loadCVData();
+                    this.renderCV();
+                    this.hideLoading();
+                } catch (error) {
+                    this.showError(error);
+                }
+            }
+
+            async loadCVData() {
+                // Try to load from file first (for server deployment)
+                // Fall back to embedded data (for local file access)
+                try {
+                    const response = await fetch('data/cv.json');
+                    if (response.ok) {
+                        this.cvData = await response.json();
+                        console.log('Loaded CV data from file');
+                        return;
+                    }
+                } catch (error) {
+                    console.log('Could not load from file, using embedded data');
+                }
+                
+                // Use embedded data for local development
+                this.cvData = embeddedCVData;
+            }
+
+            renderCV() {
+                const container = document.getElementById('cv-app');
+                this.templateEngine.render(this.cvData, container);
+                
+                // Add some animation to skill bars
+                this.animateSkillBars();
+            }
+
+            animateSkillBars() {
+                const skillBars = document.querySelectorAll('.skill-progress');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const width = entry.target.style.width;
+                            entry.target.style.width = '0%';
+                            setTimeout(() => {
+                                entry.target.style.width = width;
+                            }, 100);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                skillBars.forEach(bar => observer.observe(bar));
+            }
+
+            hideLoading() {
+                const loading = document.querySelector('.loading');
+                if (loading) {
+                    loading.style.display = 'none';
+                }
+            }
+
+            showError(error) {
+                const container = document.getElementById('cv-app');
+                container.innerHTML = `
+                    <div class="error">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <h2>Error Loading CV</h2>
+                        <p>${error.message}</p>
+                        <button onclick="location.reload()">Try Again</button>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize the application when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            new CVApplication();
+        });
+    </script>
+
+    <style>
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: var(--text-secondary);
+        }
+
+        .loading i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .error i {
+            font-size: 3rem;
+            color: #dc3545;
+            margin-bottom: 1rem;
+        }
+
+        .error h2 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .error button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .error button:hover {
+            background: #1e40af;
+        }
+    </style>
+</body>
+</html>

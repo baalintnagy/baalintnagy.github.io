@@ -69,39 +69,3 @@ async function dec(ciphertextBase64, passkey) {
     );
     return arrayBufferToString(decrypted);
 }
-
-
-
-/*
-document.addEventListener("DOMContentLoaded", () => {
-  const pass = "https://mail.google.com";
-
-  async function reveal(a) {
-    const text = await dec(a.dataset.ctText, pass);
-    const href = await dec(a.dataset.ctHref, pass);
-
-    a.textContent = text;
-    a.href = href;
-
-    // Optional: remove ciphertext to shrink surface
-    delete a.dataset.ctText;
-    delete a.dataset.ctHref;
-
-    // Optional: remove listeners so it runs only once
-    a.removeEventListener("mouseenter", handler);
-    a.removeEventListener("focus", handler);
-  }
-
-  function handler(e) {
-    reveal(e.currentTarget);
-  }
-
-  for (const id of ["PHO", "EML"]) {
-    const a = document.getElementById(id);
-    if (!a) continue;
-
-    a.addEventListener("mouseenter", handler);
-    a.addEventListener("focus", handler);
-  }
-});
-*/

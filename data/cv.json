@@ -28,10 +28,11 @@
     ]
   },
   "summary": [
-    "From about the age of 15, I have been deeply passionate about software development and computational problem-solving. This early start laid the foundation for what would lead to gaining a Master's degree in Software Engineering and a career in the realm of IT.",
-    "My specialization leans heavily towards backend development, with a particular emphasis on Java — having witnessed the evolution of JDK from 1.4 to 21. My expertise consists of technologies like Spring and Spring Boot, microservices architecture, ORM: JPA/Hibernate, and a variety of RDBMS databases such as MySQL/MariaDB, PostgreSQL and Oracle, alongside NoSQL solutions like Elasticsearch, MongoDB, Redis, and Cassandra.",
-    "Additionally, I'm experienced in message streaming solutions like Apache Kafka, and fluent in utilizing tools like Git, Jenkins, GitLab CI/CD, as well as Docker/Kubernetes for containerization and orchestration.",
-    "While my proficiency is predominantly in backend development, I am always willing and capable of learning and adapting to new technologies"
+    "Software development has been in focus since my teenage years and was later formalized through a Master’s degree in Software Engineering.",
+    "My professional work centers on backend development in Java. Working with the platform since JDK 1.4, I have seen its evolution from legacy constraints to modern language features and ecosystem tooling.",
+    "My experience includes building and maintaining Spring and Spring Boot applications, and designing and implementing microservices with REST interfaces, ORM-backed persistence (JPA/Hibernate), and message-based inter-service communication.",
+    "I have worked extensively with relational databases (MySQL/MariaDB, PostgreSQL, Oracle), alongside NoSQL technologies such as Elasticsearch, MongoDB, Cassandra, and Redis.",
+    "As part of various projects, I have implemented message-driven architectures using Apache Kafka, Apache ActiveMQ, and RabbitMQ; configured and maintained CI/CD pipelines with Jenkins and GitLab; and worked with containerized technologies such as Docker and Kubernetes."
   ],
   "work": [
     {

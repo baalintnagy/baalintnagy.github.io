@@ -156,7 +156,8 @@
         "Elasticsearch",
         "Kibana",
         "Docker",
-        "Jenkins"
+        "Jenkins",
+        "AI"
       ]
     },
     {
@@ -236,11 +237,12 @@
         ]
       },
       {
-        "group": "Relational Databases",
+        "group": "SQL - Relational Databases",
         "items": [
           { "name": "MySQL/MariaDB", "proficiencyPercent": 70 },
           { "name": "PostgreSQL", "proficiencyPercent": 70 },
-          { "name": "Oracle", "proficiencyPercent": 60 }
+          { "name": "Oracle", "proficiencyPercent": 60 },
+          { "name": "MS SQL", "proficiencyPercent": 60 }
         ]
       },
       {

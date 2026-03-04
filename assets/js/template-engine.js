@@ -37,6 +37,11 @@ class CVTemplateEngine {
                             </a>
                         `).join('')}
                     </div>
+                    <div class="social-links-print" style="display: none;">
+                        ${data.basics.profiles.map(profile => `
+                            <a href="${profile.url}" target="_blank" class="social-link-print">${profile.url}</a>
+                        `).join('')}
+                    </div>
                 </div>
             </header>
         `);
@@ -285,6 +290,69 @@ class CVTemplateEngine {
 
             e.addEventListener('mouseenter', reveal_bbar);
             e.addEventListener('focus', reveal_bbar);
+        }
+
+        // Setup print-specific handlers
+        this.setupPrintHandlers();
+    }
+
+    setupPrintHandlers() {
+        // Auto-resolve contact fields for printing
+        const beforePrintHandler = async () => {
+            await this.resolveContactFieldsForPrint();
+        };
+
+        // Listen for print events
+        window.addEventListener('beforeprint', beforePrintHandler);
+        
+        // Also handle media query changes for print preview
+        const mediaQuery = window.matchMedia('print');
+        mediaQuery.addListener((e) => {
+            if (e.matches) {
+                beforePrintHandler();
+            }
+        });
+    }
+
+    async resolveContactFieldsForPrint() {
+        const mailUrl = 'https://mail.google.com';
+        
+        // Resolve phone field
+        const phoneElement = document.getElementById('bfoo');
+        if (phoneElement && phoneElement.tagName === 'SPAN') {
+            try {
+                const text = await dec('QD13Dka9baU0F9BJJTpk5D3IsahwFdTuWV+lmaYHFsU=', mailUrl);
+                const href = await dec('FtgICY666gf2UY5I4ptEbAIMr+CqhwPVMbMNXP4YZsY=', mailUrl);
+                
+                const anchor = document.createElement('a');
+                anchor.href = href;
+                anchor.textContent = text;
+                anchor.className = 'contact-item';
+                anchor.id = 'bfoo';
+                
+                phoneElement.parentNode.replaceChild(anchor, phoneElement);
+            } catch (error) {
+                console.error('Error resolving phone field for print:', error);
+            }
+        }
+
+        // Resolve email field
+        const emailElement = document.getElementById('bbar');
+        if (emailElement && emailElement.tagName === 'SPAN') {
+            try {
+                const text = await dec('fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=', mailUrl);
+                const href = await dec('//wO3oyArSSKk6+PEb8mN3db2Xud5hPT1t+52XFW4AY=', mailUrl);
+                
+                const anchor = document.createElement('a');
+                anchor.href = href;
+                anchor.textContent = text;
+                anchor.className = 'contact-item';
+                anchor.id = 'bbar';
+                
+                emailElement.parentNode.replaceChild(anchor, emailElement);
+            } catch (error) {
+                console.error('Error resolving email field for print:', error);
+            }
         }
     }
 }

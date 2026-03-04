@@ -520,31 +520,214 @@ body {
 
 /* Print styles */
 @media print {
+    /* Force light theme for printing */
+    :root,
+    [data-theme="dark"] {
+        --primary-color: #2563eb;
+        --secondary-color: #64748b;
+        --accent-color: #f59e0b;
+        --background-color: #ffffff;
+        --surface-color: #ffffff;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --border-color: #e2e8f0;
+        --shadow-sm: none;
+        --shadow-md: none;
+        --shadow-lg: none;
+    }
+
     body {
-        background: white;
+        background: white !important;
+        color: #1e293b !important;
+        font-size: 12pt;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
     }
 
     .cv-container {
-        box-shadow: none;
-        border-radius: 0;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        border: none !important;
+        max-width: 100%;
+        margin: 0;
+        background: white !important;
+    }
+
+    .cv-header {
+        background: linear-gradient(135deg, #2563eb, #1e40af) !important;
+        color: white !important;
+        padding: 2rem 1.5rem !important;
     }
 
     .cv-content {
-        grid-template-columns: 2fr 1fr;
-    }
-
-    .cv-footer {
-        display: none;
+        grid-template-columns: 2fr 1fr !important;
+        gap: 1.5rem !important;
+        padding: 1.5rem !important;
     }
 
     .cv-section {
+        background: white !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 4px !important;
+        padding: 1rem !important;
+        box-shadow: none !important;
         break-inside: avoid;
         page-break-inside: avoid;
+        margin-bottom: 1rem;
     }
 
     .job-item {
         break-inside: avoid;
         page-break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+
+    /* Hide theme switcher */
+    .theme-toggle {
+        display: none !important;
+    }
+
+    /* Hide footer */
+    .cv-footer {
+        display: none !important;
+    }
+
+    /* Hide profile picture switching cursor */
+    .profile-image {
+        cursor: default !important;
+    }
+
+    /* Ensure proper text colors */
+    .section-title {
+        color: #2563eb !important;
+    }
+
+    .contact-item {
+        color: white !important;
+    }
+
+    .social-link {
+        color: white !important;
+    }
+
+    .job-position {
+        color: #1e293b !important;
+    }
+
+    .job-company {
+        color: #1e293b !important;
+    }
+
+    .education-institution a {
+        color: #2563eb !important;
+    }
+
+    .tech-tag,
+    .skill-tag {
+        background: #64748b !important;
+        color: white !important;
+    }
+
+    .skill-progress {
+        background: #2563eb !important;
+    }
+
+    /* Hide contact icons in print */
+    .contact-info i {
+        display: none !important;
+    }
+
+    .contact-info {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .contact-item {
+        color: white !important;
+        text-decoration: none !important;
+        display: inline !important;
+    }
+
+    /* Social media links - show as text URLs */
+    .social-links {
+        display: none !important;
+    }
+
+    .social-links-print {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        margin-top: 1rem !important;
+    }
+
+    .social-link-print {
+        color: white !important;
+        text-decoration: none !important;
+        font-size: 0.9rem !important;
+        font-family: monospace !important;
+    }
+
+    /* Ensure skill levels are visible */
+    .print-only {
+        display: block !important;
+    }
+
+    /* Remove animations and transitions */
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    /* Ensure proper spacing */
+    .skill-group {
+        margin-bottom: 1rem !important;
+    }
+
+    .soft-skills {
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+        border-top: 1px solid #e2e8f0 !important;
+    }
+
+    /* Contact info adjustments */
+    .contact-info {
+        margin-bottom: 1rem !important;
+    }
+
+    /* Education and language items */
+    .education-item,
+    .language-item {
+        margin-bottom: 0.75rem !important;
+    }
+
+    /* Page setup */
+    @page {
+        margin: 0.75in;
+        size: A4;
+    }
+
+    /* Ensure headers don't break */
+    h1, h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    /* Ensure links show URLs */
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #64748b;
+    }
+
+    /* Don't show URLs for internal links or social media in print */
+    .social-link-print:after,
+    a[href^="mailto:"]:after,
+    a[href^="tel:"]:after {
+        content: none !important;
     }
 }
 

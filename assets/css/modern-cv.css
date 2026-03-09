@@ -671,9 +671,10 @@ body {
         font-family: monospace !important;
     }
 
-    /* Ensure skill levels are visible */
-    .print-only {
-        display: block !important;
+    /* Hide skill percentages during printing */
+    .print-only.skill-level,
+    .skill-progress {
+        display: none !important;
     }
 
     /* Remove animations and transitions */

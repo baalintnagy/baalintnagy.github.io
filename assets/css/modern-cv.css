@@ -677,6 +677,16 @@ body {
         display: none !important;
     }
 
+    /* Adjust skill item layout for printing */
+    .skill-item {
+        grid-template-columns: 1fr !important;
+        gap: 0.25rem !important;
+    }
+
+    .skill-bar {
+        display: none !important;
+    }
+
     /* Remove animations and transitions */
     * {
         transition: none !important;

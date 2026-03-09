@@ -159,7 +159,7 @@ class CVTemplateEngine {
                 <div class="skill-bar" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%">
                     <div class="skill-progress" style="width: ${skill.proficiencyPercent}%" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%"></div>
                 </div>
-                <div class="print-only skill-level">${skill.proficiencyPercent}%</div>
+                <!--div class="print-only skill-level">${skill.proficiencyPercent}%</div-->
             </div>
         `;
     }

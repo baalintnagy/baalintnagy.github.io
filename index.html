@@ -28,7 +28,7 @@
 </head>
 <body>
     <!-- PDF Export Button -->
-    <button id="export-long-pdf-btn" type="button" class="pdf-export-btn">Export Long PDF</button>
+    <button id="export-long-pdf-btn" type="button" class="pdf-export-btn">Export PDF</button>
     
     <div id="cv-app">
         <div class="loading">
@@ -160,7 +160,7 @@
             ],
             "extras": {
                 "footerLink": {
-                    "label": "Portfolio",
+                    "label": "https://acme.acme",
                     "url": "https://acme.acme"
                 }
             }
@@ -333,7 +333,7 @@
 
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = 'Bálint-Nagy-CV-long.pdf';
+                a.download = 'Balint-Nagy-CV.pdf';
                 document.body.appendChild(a);
                 a.click();
                 a.remove();
@@ -347,7 +347,7 @@
 
                 if (button) {
                     button.disabled = false;
-                    button.textContent = 'Export Long PDF';
+                    button.textContent = 'Export PDF';
                 }
             }
         }

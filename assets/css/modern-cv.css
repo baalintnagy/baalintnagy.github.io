@@ -727,11 +727,6 @@ body {
         page-break-after: avoid;
     }
 
-    /* Don't show URLs for links in print to avoid duplication */
-    a[href^="http"]:after {
-        content: none !important;
-    }
-
     /* Don't show URLs for internal links or social media in print */
     .social-link-print:after,
     a[href^="mailto:"]:after,

@@ -37,11 +37,6 @@ class CVTemplateEngine {
                             </a>
                         `).join('')}
                     </div>
-                    <div class="social-links-print" style="display: none;">
-                        ${data.basics.profiles.map(profile => `
-                            <a href="${profile.url}" target="_blank" class="social-link-print">${profile.url}</a>
-                        `).join('')}
-                    </div>
                 </div>
             </header>
         `);
@@ -153,7 +148,7 @@ class CVTemplateEngine {
         return `
             <div class="skill-group">
                 <h3 class="skill-group-title">${group.group}</h3>
-                <div class="skill-items">
+                <div class="languages-content">
                     ${group.items.map(skill => this.renderSkill(skill)).join('')}
                 </div>
             </div>
@@ -161,13 +156,11 @@ class CVTemplateEngine {
     }
 
     renderSkill(skill) {
+        const bar = `<span class="language-indicator">${this.renderIndicator(skill.proficiencyPercent)}</span>`;
         return `
-            <div class="skill-item">
-                <div class="skill-name" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%">${skill.name}</div>
-                <div class="skill-bar" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%">
-                    <div class="skill-progress" style="width: ${skill.proficiencyPercent}%" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%"></div>
-                </div>
-                <div class="print-only skill-level">${skill.proficiencyPercent}%</div>
+            <div class="language-item">
+                <div class="language-name" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%">${skill.name} </div>
+                <div class="language-indicator">${bar}</div>
             </div>
         `;
     }
@@ -190,7 +183,7 @@ class CVTemplateEngine {
     }
 
     renderLanguage(lang) {
-        const indicator = this.renderLanguageIndicator(lang.indicator);
+        const indicator = this.renderLanguageIndicator(lang.percentage);
         return `
             <div class="language-item">
                 <div class="language-name">${lang.language} (${lang.fluency})</div>
@@ -199,11 +192,18 @@ class CVTemplateEngine {
         `;
     }
 
-    renderLanguageIndicator(indicator) {
-        const full = '■'.repeat(indicator.full);
-        const half = '▸'.repeat(indicator.half);
-        const empty = '□'.repeat(indicator.empty);
-        return `<span class="indicator">${full}${half}${empty}</span>`;
+    renderIndicator(percentage) {
+        const decFull = Math.floor(percentage / 10);
+        const decEmpty = Math.floor((100-percentage) / 10);
+        const decHalf = 10 - (decFull + decEmpty);
+        const full = '■'.repeat(decFull);
+        const half = '▸'.repeat(decHalf);
+        const empty = '□'.repeat(decEmpty);
+        return `${full}${half}${empty}`;
+    }
+
+    renderLanguageIndicator(percentage) {
+        return `<span class="indicator">${this.renderIndicator(percentage)}</span>`;
     }
 
     getSocialIcon(network) {
@@ -301,69 +301,9 @@ class CVTemplateEngine {
             e.addEventListener('focus', reveal_bbar);
         }
 
-        // Setup print-specific handlers
-        this.setupPrintHandlers();
     }
 
-    setupPrintHandlers() {
-        // Auto-resolve contact fields for printing
-        const beforePrintHandler = async () => {
-            await this.resolveContactFieldsForPrint();
-        };
 
-        // Listen for print events
-        window.addEventListener('beforeprint', beforePrintHandler);
-        
-        // Also handle media query changes for print preview
-        const mediaQuery = window.matchMedia('print');
-        mediaQuery.addListener((e) => {
-            if (e.matches) {
-                beforePrintHandler();
-            }
-        });
-    }
-
-    async resolveContactFieldsForPrint() {
-        const mailUrl = 'https://mail.google.com';
-        
-        // Resolve phone field
-        const phoneElement = document.getElementById('bfoo');
-        if (phoneElement && phoneElement.tagName === 'SPAN') {
-            try {
-                const text = await dec('QD13Dka9baU0F9BJJTpk5D3IsahwFdTuWV+lmaYHFsU=', mailUrl);
-                const href = await dec('FtgICY666gf2UY5I4ptEbAIMr+CqhwPVMbMNXP4YZsY=', mailUrl);
-                
-                const anchor = document.createElement('a');
-                anchor.href = href;
-                anchor.textContent = text;
-                anchor.className = 'contact-item';
-                anchor.id = 'bfoo';
-                
-                phoneElement.parentNode.replaceChild(anchor, phoneElement);
-            } catch (error) {
-                console.error('Error resolving phone field for print:', error);
-            }
-        }
-
-        // Resolve email field
-        const emailElement = document.getElementById('bbar');
-        if (emailElement && emailElement.tagName === 'SPAN') {
-            try {
-                const text = await dec('fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=', mailUrl);
-                const href = await dec('//wO3oyArSSKk6+PEb8mN3db2Xud5hPT1t+52XFW4AY=', mailUrl);
-                
-                const anchor = document.createElement('a');
-                anchor.href = href;
-                anchor.textContent = text;
-                anchor.className = 'contact-item';
-                anchor.id = 'bbar';
-                
-                emailElement.parentNode.replaceChild(anchor, emailElement);
-            } catch (error) {
-                console.error('Error resolving email field for print:', error);
-            }
-        }
-    }
 }
 
 // Export for use

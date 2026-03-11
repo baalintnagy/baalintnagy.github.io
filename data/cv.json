@@ -287,17 +287,17 @@
     {
       "language": "Hungarian",
       "fluency": "native",
-      "indicator": { "full": 10, "half": 0, "empty": 0, "scale": 10 }
+      "percentage": 100
     },
     {
       "language": "English",
       "fluency": "fluent",
-      "indicator": { "full": 9, "half": 1, "empty": 0, "scale": 10 }
+      "percentage": 95
     },
     {
       "language": "German",
       "fluency": "passive",
-      "indicator": { "full": 1, "half": 1, "empty": 8, "scale": 10 }
+      "percentage": 15
     }
   ],
   "extras": {

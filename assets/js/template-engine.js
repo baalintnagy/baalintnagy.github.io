@@ -79,8 +79,16 @@ class CVTemplateEngine {
                 <div class="skills-content">
                     ${data.skills.technical.map(group => this.renderSkillGroup(group)).join('')}
                 </div>
-                <div class="soft-skills">
-                    <h3>Soft Skills</h3>
+            </section>
+        `);
+
+        // Soft Skills template
+        this.registerTemplate('softSkills', (data) => `
+            <section class="cv-section soft-skills-section">
+                <h2 class="section-title letter-spacing-sm">
+                    <i class="bi bi-people"></i> Soft Skills
+                </h2>
+                <div class="soft-skills-content">
                     <div class="soft-skills-tags">
                         ${data.skills.soft.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
                     </div>
@@ -231,6 +239,7 @@ class CVTemplateEngine {
                         ${this.templates.get('skills')(data)}
                         ${this.templates.get('education')(data)}
                         ${this.templates.get('languages')(data)}
+                        ${this.templates.get('softSkills')(data)}
                     </div>
                 </div>
                 <footer class="cv-footer">

@@ -156,11 +156,13 @@ class CVTemplateEngine {
     }
 
     renderSkill(skill) {
-        const bar = `<span class="language-indicator">${this.renderIndicator(skill.proficiencyPercent)}</span>`;
+        const indicator = this.renderSpanIndicator(skill.proficiencyPercent);
         return `
             <div class="language-item">
-                <div class="language-name" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%">${skill.name} </div>
-                <div class="language-indicator">${bar}</div>
+                <div class="language-name" title="${skill.proficiencyPercent}%" aria-label="${skill.proficiencyPercent}%">
+                    ${skill.name}
+                </div>
+                <div class="language-indicator">${indicator}</div>
             </div>
         `;
     }
@@ -183,7 +185,7 @@ class CVTemplateEngine {
     }
 
     renderLanguage(lang) {
-        const indicator = this.renderLanguageIndicator(lang.percentage);
+        const indicator = this.renderSpanIndicator(lang.percentage);
         return `
             <div class="language-item">
                 <div class="language-name">${lang.language} (${lang.fluency})</div>
@@ -202,7 +204,7 @@ class CVTemplateEngine {
         return `${full}${half}${empty}`;
     }
 
-    renderLanguageIndicator(percentage) {
+    renderSpanIndicator(percentage) {
         return `<span class="indicator">${this.renderIndicator(percentage)}</span>`;
     }
 

@@ -285,58 +285,6 @@ body {
     color: var(--primary-color);
 }
 
-.skill-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.skill-item {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1rem;
-    align-items: center;
-}
-
-.skill-name {
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.skill-bar {
-    height: 8px;
-    background: var(--border-color);
-    border-radius: 4px;
-    overflow: hidden;
-    min-width: 100px;
-}
-
-.skill-progress {
-    height: 100%;
-    background: var(--primary-color);
-    border-radius: 4px;
-    transition: width 1s ease-out;
-}
-
-.skill-level {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-}
-
-.soft-skills {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.soft-skills h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    color: var(--text-primary);
-}
-
 .soft-skills-tags {
     display: flex;
     flex-wrap: wrap;
@@ -475,11 +423,6 @@ body {
         gap: 0.25rem;
     }
 
-    .skill-item {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-    }
-
     .tech-tags,
     .soft-skills-tags {
         gap: 0.4rem;
@@ -537,4 +480,45 @@ body {
 
 .letter-spacing-lg {
     letter-spacing: 0.5rem !important;
+}
+
+/* Print styles */
+@media print {
+    * {
+        color: #333333 !important;
+        background: white !important;
+        box-shadow: none !important;
+        border-color: #cccccc !important;
+    }
+    
+    .cv-container {
+        box-shadow: none !important;
+        border: 1px solid #cccccc !important;
+    }
+    
+    .contact-item,
+    .footer-link {
+        color: #333333 !important;
+    }
+    
+    .language-indicator,
+    .indicator {
+        color: #333333 !important;
+    }
+    
+    .section-title {
+        color: #333333 !important;
+    }
+    
+    .social-link {
+        background: #f5f5f5 !important;
+        color: #333333 !important;
+    }
+    
+    .tech-tag,
+    .skill-tag {
+        background: #f5f5f5 !important;
+        color: #333333 !important;
+        border: 1px solid #cccccc !important;
+    }
 }

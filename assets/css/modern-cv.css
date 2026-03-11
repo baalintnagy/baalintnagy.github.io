@@ -493,7 +493,7 @@ body {
     
     .cv-container {
         box-shadow: none !important;
-        border: 1px solid #cccccc !important;
+        border: none !important;
     }
     
     .contact-item,

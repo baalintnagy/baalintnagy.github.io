@@ -43,8 +43,7 @@
       "start": "2026-04",
       "end": null,
       "highlights": [
-        "Developed features based on user stories and maintained a high-risk legacy codebase.",
-        "Contributed to modernization efforts by porting parts of the application to newer technologies and improving code quality."
+        "Participated in the design and implementation of integrations between existing internal systems and Japan tax refund systems.",        
       ],
       "technologies": [
         "Java 21",

@@ -36,6 +36,25 @@
   ],
   "work": [
     {
+      "company": "Global Blue",
+      "position": "Senior Software Engineer",
+      "employmentType": "Delegated/Contract",
+      "vendor": "Sonrisa Technologies",
+      "start": "2026-04",
+      "end": null,
+      "highlights": [
+        "Developed features based on user stories and maintained a high-risk legacy codebase.",
+        "Contributed to modernization efforts by porting parts of the application to newer technologies and improving code quality."
+      ],
+      "technologies": [
+        "Java 21",
+        "Spring Boot",
+        "Microservices",
+        "MS SQL",
+        "RabbitMQ"
+      ]
+    },
+    {
       "company": "BlackRock",
       "position": "Senior Software Engineer",
       "employmentType": "Delegated/Contract",

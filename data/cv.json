@@ -36,6 +36,24 @@
   ],
   "work": [
     {
+      "company": "Global Blue",
+      "position": "Senior Software Engineer",
+      "employmentType": "Delegated/Contract",
+      "vendor": "Sonrisa Technologies",
+      "start": "2026-04",
+      "end": null,
+      "highlights": [
+        "Participated in the design and implementation of integrations between existing internal systems and Japan tax refund systems."
+      ],
+      "technologies": [
+        "Java 21",
+        "Spring Boot",
+        "Microservices",
+        "MS SQL",
+        "RabbitMQ"
+      ]
+    },
+    {
       "company": "BlackRock",
       "position": "Senior Software Engineer",
       "employmentType": "Delegated/Contract",

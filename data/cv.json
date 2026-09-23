@@ -28,11 +28,9 @@
     ]
   },
   "summary": [
-    "Software development has been in focus since my teenage years and was later formalized through a Master’s degree in Software Engineering.",
-    "My professional work centers on backend development in Java. Working with the platform since JDK 1.4, I have seen its evolution from legacy constraints to modern language features and ecosystem tooling.",
-    "My experience includes building and maintaining Spring and Spring Boot applications, and designing and implementing microservices with REST interfaces, ORM-backed persistence (JPA/Hibernate), and message-based inter-service communication.",
-    "I have worked extensively with relational databases (MySQL/MariaDB, PostgreSQL, Oracle), alongside NoSQL technologies such as Elasticsearch, MongoDB, Cassandra, and Redis.",
-    "As part of various projects, I have implemented message-driven architectures using Apache Kafka, Apache ActiveMQ, and RabbitMQ; configured and maintained CI/CD pipelines with Jenkins and GitLab; and worked with containerized technologies such as Docker and Kubernetes."
+    "I am a senior Java backend developer with more than 15 years of professional experience. My main areas of expertise are Spring/Spring Boot, microservice architectures, relational and NoSQL databases, and message-driven systems.",
+    "I have worked on business-critical backend platforms, legacy modernization, and distributed systems in international teams.",
+    "I have been using Java since JDK 1.4 and currently work with Java 21."
   ],
   "work": [
     {

@@ -111,6 +111,23 @@ body {
     opacity: 0.8;
 }
 
+.contact-value {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    white-space: nowrap;
+}
+
+.contact-reveal {
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.contact-reveal:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
 .social-links {
     display: flex;
     gap: 1rem;

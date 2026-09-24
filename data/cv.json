@@ -10,8 +10,14 @@
     "label": "Software Engineer",
     "image": "assets/images/profile.png",
     "website": "https://baalintnagy.github.io",
-    "email": "**********************",
-    "phone": "**********************",
+    "email": {
+      "ciphertext": "fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=",
+      "maskLength": 22
+    },
+    "phone": {
+      "ciphertext": "QD13Dka9baU0F9BJJTpk5D3IsahwFdTuWV+lmaYHFsU=",
+      "maskLength": 16
+    },
     "profiles": [
       {
         "network": "LinkedIn",

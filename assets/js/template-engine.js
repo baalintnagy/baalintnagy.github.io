@@ -24,9 +24,9 @@ class CVTemplateEngine {
                 <div class="contact-section">
                     <div class="contact-info">
                         <i class="bi bi-telephone"></i>
-                        <span id="bfoo" class="contact-item">${data.basics.phone}</span>
+                        <button type="button" class="contact-item contact-value contact-reveal" data-contact="phone" aria-label="Show phone number">${this.maskContact(data.basics.phone)}</button>
                         <i class="bi bi-envelope"></i>
-                        <span id="bbar" class="contact-item">${data.basics.email}</span>
+                        <button type="button" class="contact-item contact-value contact-reveal" data-contact="email" aria-label="Show email address">${this.maskContact(data.basics.email)}</button>
                         <i class="bi bi-globe"></i>
                         <a href="${data.basics.website}" target="_blank" class="contact-item">${data.basics.website}</a>
                     </div>
@@ -168,17 +168,23 @@ class CVTemplateEngine {
     }
 
     renderEducation(edu) {
+        // A qualification can have a single year or a start/end date range.
+        const dates = edu.year != null ? [edu.year] : [edu.start, edu.end];
+        const period = [...new Set(dates
+            .filter(date => date != null && date !== '')
+            .map(date => this.formatDate(String(date))))].join(' - ');
+
         return `
             <div class="education-item">
                 <div class="education-header">
                     <h3 class="education-institution">
-                        <a href="${edu.url}" target="_blank">${edu.institution}</a>
+                        ${edu.url ? `<a href="${edu.url}" target="_blank">${edu.institution}</a>` : edu.institution}
                     </h3>
-                    <div class="education-period">${edu.start} - ${edu.end}</div>
+                    ${period ? `<div class="education-period">${period}</div>` : ''}
                 </div>
                 <div class="education-details">
                     <div class="education-degree">${edu.studyType} in ${edu.area}</div>
-                    <div class="education-major">${edu.department} - Major: ${edu.major}</div>
+                    <div class="education-major">${[edu.department, edu.major ? `Major: ${edu.major}` : ''].filter(Boolean).join(' - ')}</div>
                 </div>
             </div>
         `;
@@ -257,54 +263,47 @@ class CVTemplateEngine {
         if (container) {
             container.innerHTML = html;
             // Setup decryption handlers after rendering
-            this.setupDecryptionHandlers();
+            this.setupDecryptionHandlers(data.basics, container);
         }
         return html;
     }
 
-    setupDecryptionHandlers() {
-        const mailUrl = 'https://mail.google.com';
-        const p = document.getElementById('bfoo');
-        const e = document.getElementById('bbar');
-
-        if (p) {
-            const reveal_bfoo = async () => {
-                const text = await dec('QD13Dka9baU0F9BJJTpk5D3IsahwFdTuWV+lmaYHFsU=', mailUrl);
-                const href = await dec('FtgICY666gf2UY5I4ptEbAIMr+CqhwPVMbMNXP4YZsY=', mailUrl);
-                
-                const anchor = document.createElement('a');
-                anchor.href = href;
-                anchor.textContent = text;
-                anchor.className = 'contact-item';
-                anchor.id = 'bfoo';
-                
-                p.parentNode.replaceChild(anchor, p);
-            };
-
-            p.addEventListener('mouseenter', reveal_bfoo);
-            p.addEventListener('focus', reveal_bfoo);
-        }
-
-        if (e) {
-            const reveal_bbar = async () => {
-                const text = await dec('fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=', mailUrl);
-                const href = await dec('//wO3oyArSSKk6+PEb8mN3db2Xud5hPT1t+52XFW4AY=', mailUrl);
-                
-                const anchor = document.createElement('a');
-                anchor.href = href;
-                anchor.textContent = text;
-                anchor.className = 'contact-item';
-                anchor.id = 'bbar';
-                
-                e.parentNode.replaceChild(anchor, e);
-            };
-
-            e.addEventListener('mouseenter', reveal_bbar);
-            e.addEventListener('focus', reveal_bbar);
-        }
-
+    maskContact(contact) {
+        const length = typeof contact === 'string' ? contact.length : contact.maskLength;
+        return '*'.repeat(Number.isInteger(length) && length > 0 ? length : 20);
     }
 
+    setupDecryptionHandlers(basics, container) {
+        container.querySelectorAll('[data-contact]').forEach(button => {
+            let revealing = false;
+            const reveal = async () => {
+                if (revealing) return;
+                revealing = true;
+                try {
+                    const kind = button.dataset.contact;
+                    const contact = basics[kind];
+                    // Placeholder CV contacts are plain text; real contacts stay encrypted.
+                    const value = typeof contact === 'string'
+                        ? contact
+                        : await dec(contact.ciphertext, 'https://mail.google.com');
+                    const anchor = document.createElement('a');
+                    anchor.href = `${kind === 'phone' ? 'tel:' : 'mailto:'}${value}`;
+                    anchor.textContent = value;
+                    anchor.className = 'contact-item contact-value';
+                    const hadFocus = document.activeElement === button;
+                    button.replaceWith(anchor);
+                    if (hadFocus) anchor.focus();
+                } catch (error) {
+                    revealing = false;
+                    button.textContent = 'Try again';
+                    console.error('Contact reveal failed:', error);
+                }
+            };
+            button.addEventListener('mouseenter', reveal);
+            button.addEventListener('focus', reveal);
+            button.addEventListener('click', reveal);
+        });
+    }
 
 }
 

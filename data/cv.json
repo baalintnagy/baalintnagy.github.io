@@ -8,7 +8,7 @@
   "basics": {
     "name": "Bálint Nagy",
     "label": "Software Engineer",
-    "image": "assets/images/profile.png",
+    "image": "assets/images/profile-2026-10.png",
     "website": "https://baalintnagy.github.io",
     "email": {
       "ciphertext": "fvhQzPSCkLLLh8LdE8Vupa0bpqMFuRDKQO11s8oThWc=",
@@ -34,7 +34,7 @@
     ]
   },
   "summary": [
-    "I am a senior Java backend developer with more than 15 years of professional experience. My main areas of expertise are Spring/Spring Boot, microservice architectures, relational and NoSQL databases, and message-driven systems.",
+    "I am a software engineer specialized in backend development with more than 15 years of professional experience. My main areas of expertise are Java, Spring/Spring Boot, microservice architectures, relational and NoSQL databases, and message-driven systems.",
     "I have worked on business-critical backend platforms, legacy modernization, and distributed systems in international teams.",
     "I have been using Java since JDK 1.4 and currently work with Java 21."
   ],

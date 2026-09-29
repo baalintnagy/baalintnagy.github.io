@@ -50,7 +50,7 @@
         "Participated in the design and implementation of integrations between existing internal systems and Japan tax refund systems."
       ],
       "technologies": [
-        "Java 21",
+        "Java 21-25",
         "Spring Boot",
         "Microservices",
         "MS SQL",

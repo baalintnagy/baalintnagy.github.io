@@ -28,7 +28,7 @@ class CVTemplateEngine {
                         <i class="bi bi-envelope"></i>
                         <button type="button" class="contact-item contact-value contact-reveal" data-contact="email" aria-label="Show email address">${this.maskContact(data.basics.email)}</button>
                         <i class="bi bi-globe"></i>
-                        <a href="${data.basics.website}" target="_blank" class="contact-item">${data.basics.website}</a>
+                        <a href="${data.basics.website}" target="_blank" class="contact-item contact-value">${data.basics.website}</a>
                     </div>
                     <div class="social-links">
                         ${data.basics.profiles.map(profile => `

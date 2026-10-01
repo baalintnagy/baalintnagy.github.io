@@ -242,13 +242,6 @@ class CVTemplateEngine {
                     <div class="main-content">
                         ${this.templates.get('summary')(data)}
                         ${this.templates.get('experience')(data)}
-                        <!-- Temporary salary expectation; remove this section when no longer needed. -->
-                        <section class="cv-section salary-expectation-section">
-                            <h2 class="section-title letter-spacing-sm">
-                                <i class="bi bi-cash-stack" aria-hidden="true"></i> Salary Expectation
-                            </h2>
-                            <p class="summary-paragraph">Monthly gross: <strong>1,900,000 HUF</strong></p>
-                        </section>
                     </div>
                     <div class="sidebar">
                         ${this.templates.get('skills')(data)}

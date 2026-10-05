@@ -9,7 +9,7 @@
     top: 20px;
     right: 20px;
     z-index: 1000;
-    background: var(--primary-color);
+    background: var(--button-background-color);
     color: white;
     border: none;
     border-radius: 50px;
@@ -25,6 +25,7 @@
 }
 
 .theme-toggle:hover {
+    background: var(--button-hover-background-color);
     transform: translateY(-2px);
     box-shadow: 0 12px 20px -5px rgb(0 0 0 / 0.2);
 }
@@ -166,16 +167,6 @@
 /* Smooth transitions for theme switching */
 * {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Theme toggle button dark mode styling */
-[data-theme="dark"] .theme-toggle {
-    background: var(--primary-color);
-    color: white;
-}
-
-[data-theme="dark"] .theme-toggle:hover {
-    background: #3d7ab8;
 }
 
 /* Responsive adjustments for theme toggle */

@@ -48,6 +48,19 @@
     <script src="assets/js/theme-switcher.js"></script>
 
     <!-- Auxiliary scripts -->
+    <script>
+        // JSON rendering and MathJax startup can finish in either order.
+        window.mathJaxReady = new Promise(resolve => {
+            window.MathJax = {
+                skipStartupTypeset: true,
+                AuthorInit: function () {
+                    MathJax.Hub.Register.StartupHook('End', function () {
+                        resolve(MathJax.Hub);
+                    });
+                }
+            };
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
     <script src="assets/js/script.js"></script>
     
@@ -199,6 +212,11 @@
             renderCV() {
                 const container = document.getElementById('cv-app');
                 this.templateEngine.render(this.cvData, container);
+
+                // Typeset only after both the content and MathJax are ready.
+                window.mathJaxReady.then(hub => {
+                    hub.Queue(['Typeset', hub, container]);
+                });
                 
                 // Add some animation to skill bars
                 this.animateSkillBars();

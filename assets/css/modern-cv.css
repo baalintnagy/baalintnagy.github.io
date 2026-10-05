@@ -70,6 +70,11 @@ body {
     object-fit: cover;
 }
 
+:root:not([data-theme="dark"]) .profile-image {
+    border-color: #6f94b5;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.55);
+}
+
 .name {
     font-size: 2.5rem;
     font-weight: 800;

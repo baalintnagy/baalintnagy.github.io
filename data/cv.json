@@ -132,8 +132,8 @@
     {
       "company": "Starschema",
       "position": "Senior Software Developer",
-      "start": "2018",
-      "end": "2022",
+      "start": "2018-05",
+      "end": "2022-12",
       "highlights": [
         "Designed and developed microservice-based data transformation systems using Kafka Streams.",
         "Contributed to the backend modules of a container transportation management platform.",
@@ -160,8 +160,8 @@
     {
       "company": "Oncompass Medicine",
       "position": "Senior Java Developer",
-      "start": "2015",
-      "end": "2018",
+      "start": "2015-03",
+      "end": "2018-04",
       "highlights": [
         "Designed and implemented modules of a diagnostic decision support system for cancer treatment, based on genetic profiles.",
         "Participated in architectural design and detailed planning of features and workflows.",
@@ -187,8 +187,8 @@
       "position": "Software Engineer",
       "employmentType": "Delegated/Contract",
       "vendor": "QualySoft",
-      "start": "2013",
-      "end": "2015",
+      "start": "2013-03",
+      "end": "2015-02",
       "highlights": [
         "Designed and implemented modules for the CrossNG application used in international vehicle logistics.",
         "Participated in planning and effort estimation of user stories within a distributed team."
@@ -211,8 +211,8 @@
       "company": "InfomatiX",
       "division": "Enterprise Mobility Division",
       "position": "Software Developer",
-      "start": "2012",
-      "end": "2013",
+      "start": "2012-02",
+      "end": "2013-02",
       "highlights": [
         "Designed and implemented a cross-platform mobile development framework, including a custom language and IDE based on the NetBeans platform.",
         "Developed backend applications using Microsoft .NET (C#) serving enterprise mobile clients.",

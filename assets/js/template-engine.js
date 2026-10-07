@@ -23,9 +23,18 @@ class CVTemplateEngine {
                 </div>
                 <div class="contact-section">
                     <div class="contact-info">
-                        <button type="button" class="contact-item contact-value contact-reveal" data-contact="phone" aria-label="Show phone number">${this.maskContact(data.basics.phone)}</button>
-                        <button type="button" class="contact-item contact-value contact-reveal" data-contact="email" aria-label="Show email address">${this.maskContact(data.basics.email)}</button>
-                        <a href="${data.basics.website}" target="_blank" class="contact-item contact-value">${data.basics.website}</a>
+                        <div class="contact-group">
+                            <i class="bi bi-telephone" aria-hidden="true"></i>
+                            <button type="button" class="contact-item contact-value contact-reveal" data-contact="phone" aria-label="Show phone number">${this.maskContact(data.basics.phone)}</button>
+                        </div>
+                        <div class="contact-group">
+                            <i class="bi bi-envelope" aria-hidden="true"></i>
+                            <button type="button" class="contact-item contact-value contact-reveal" data-contact="email" aria-label="Show email address">${this.maskContact(data.basics.email)}</button>
+                        </div>
+                        <div class="contact-group">
+                            <i class="bi bi-globe" aria-hidden="true"></i>
+                            <a href="${data.basics.website}" target="_blank" class="contact-item contact-value">${data.basics.website}</a>
+                        </div>
                     </div>
                     <div class="social-links">
                         ${data.basics.profiles.map(profile => `

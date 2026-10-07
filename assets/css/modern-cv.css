@@ -103,8 +103,15 @@ body {
 .contact-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem 3rem;
+    gap: 2rem 4rem;
     justify-content: center;
+}
+
+.contact-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--header-text-color);
 }
 
 .contact-item {
@@ -447,7 +454,7 @@ body {
 
     .contact-info {
         flex-direction: column;
-        gap: 1.25rem;
+        gap: 1.75rem;
         align-items: center;
     }
 

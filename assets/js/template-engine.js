@@ -23,11 +23,8 @@ class CVTemplateEngine {
                 </div>
                 <div class="contact-section">
                     <div class="contact-info">
-                        <i class="bi bi-telephone"></i>
                         <button type="button" class="contact-item contact-value contact-reveal" data-contact="phone" aria-label="Show phone number">${this.maskContact(data.basics.phone)}</button>
-                        <i class="bi bi-envelope"></i>
                         <button type="button" class="contact-item contact-value contact-reveal" data-contact="email" aria-label="Show email address">${this.maskContact(data.basics.email)}</button>
-                        <i class="bi bi-globe"></i>
                         <a href="${data.basics.website}" target="_blank" class="contact-item contact-value">${data.basics.website}</a>
                     </div>
                     <div class="social-links">

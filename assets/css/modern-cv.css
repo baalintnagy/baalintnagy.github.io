@@ -565,11 +565,6 @@ body {
         display: none !important;
     }
     
-    /* Hide contact icons in header */
-    .contact-info i {
-        display: none !important;
-    }
-    
     /* Override social links container for print */
     .social-links {
         display: block !important;

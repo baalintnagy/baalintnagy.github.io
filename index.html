@@ -41,6 +41,7 @@
     <script src="assets/js/template-engine.js"></script>
     
     <!-- PDF Export Scripts -->
+    <script src="assets/js/pdf-metadata.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     
@@ -286,7 +287,7 @@
 
         // Initialize the application when DOM is ready
         document.addEventListener('DOMContentLoaded', () => {
-            new CVApplication();
+            window.cvApplication = new CVApplication();
             
             // Setup PDF export
             const exportBtn = document.getElementById('export-long-pdf-btn');
@@ -327,6 +328,7 @@
 
                 const { PDFDocument } = PDFLib;
                 const pdfDoc = await PDFDocument.create();
+                applyCVPdfMetadata(pdfDoc, window.cvApplication.cvData);
 
                 const pngImage = await pdfDoc.embedPng(imgData);
 

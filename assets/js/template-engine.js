@@ -45,7 +45,7 @@ class CVTemplateEngine {
         this.registerTemplate('summary', (data) => `
             <section class="cv-section summary-section">
                 <h2 class="section-title letter-spacing-sm">
-                    <i class="bi bi-person"></i> About Me
+                    About Me
                 </h2>
                 <div class="summary-content">
                     ${data.summary.map(paragraph => `<p class="summary-paragraph">${paragraph}</p>`).join('')}
@@ -57,7 +57,7 @@ class CVTemplateEngine {
         this.registerTemplate('experience', (data) => `
             <section class="cv-section experience-section">
                 <h2 class="section-title letter-spacing-sm">
-                    <i class="bi bi-briefcase"></i> Professional Experience
+                    Professional Experience
                 </h2>
                 <div class="experience-timeline">
                     ${data.work.map(job => this.renderJob(job)).join('')}
@@ -69,7 +69,7 @@ class CVTemplateEngine {
         this.registerTemplate('skills', (data) => `
             <section class="cv-section skills-section">
                 <h2 class="section-title letter-spacing-sm">
-                    <i class="bi bi-gear"></i> Technical Skills
+                    Technical Skills
                 </h2>
                 <div class="skills-content">
                     ${data.skills.technical.map(group => this.renderSkillGroup(group)).join('')}
@@ -81,7 +81,7 @@ class CVTemplateEngine {
         this.registerTemplate('softSkills', (data) => `
             <section class="cv-section soft-skills-section">
                 <h2 class="section-title letter-spacing-sm">
-                    <i class="bi bi-people"></i> Soft Skills
+                    Soft Skills
                 </h2>
                 <div class="soft-skills-content">
                     <div class="soft-skills-tags">
@@ -95,7 +95,7 @@ class CVTemplateEngine {
         this.registerTemplate('education', (data) => `
             <section class="cv-section education-section">
                 <h2 class="section-title letter-spacing-sm">
-                    <i class="bi bi-book"></i> Education
+                    Education
                 </h2>
                 <div class="education-content">
                     ${data.education.map(edu => this.renderEducation(edu)).join('')}
@@ -107,7 +107,7 @@ class CVTemplateEngine {
         this.registerTemplate('languages', (data) => `
             <section class="cv-section languages-section">
                 <h2 class="section-title letter-spacing-sm">
-                    <i class="bi bi-translate"></i> Languages
+                    Languages
                 </h2>
                 <div class="languages-content">
                     ${data.languages.map(lang => this.renderLanguage(lang)).join('')}

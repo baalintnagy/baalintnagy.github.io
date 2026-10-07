@@ -103,7 +103,7 @@ body {
 .contact-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1.5rem 3rem;
     justify-content: center;
 }
 
@@ -447,7 +447,7 @@ body {
 
     .contact-info {
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 1.25rem;
         align-items: center;
     }
 

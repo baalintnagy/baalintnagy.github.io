@@ -5,22 +5,26 @@
 
 /* CSS Variables for theming */
 :root {
-    --primary-color: #426585;
-    --header-background-start: #e0edf7;
-    --header-background-end: #bdd4e8;
-    --header-text-color: #263e55;
-    --button-background-color: #52789b;
-    --button-hover-background-color: #426585;
-    --secondary-color: #64748b;
-    --accent-color: #f59e0b;
-    --background-color: #f8fafc;
-    --surface-color: #ffffff;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --border-color: #e2e8f0;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.7), 0 10px 10px -5px rgb(0 0 0 / 0.6);
+    --primary-color: #526582;
+    --header-background-start: #cad8e9;
+    --header-background-end: #d3c9e1;
+    --header-text-color: #36445a;
+    --button-background-color: #d5e1ef;
+    --button-hover-background-color: #c6d5e7;
+    --button-text-color: #36445a;
+    --secondary-color: #637086;
+    --accent-color: #856451;
+    --background-color: #f3f1f6;
+    --surface-color: #fdfbfe;
+    --text-primary: #354052;
+    --text-secondary: #637086;
+    --border-color: #a8adc0;
+    --tag-background-color: #e6e2f1;
+    --tag-hover-background-color: #dad4e9;
+    --tag-text-color: #514b68;
+    --shadow-sm: 0 1px 3px 0 rgb(65 57 88 / 0.04);
+    --shadow-md: 0 4px 8px -2px rgb(65 57 88 / 0.08);
+    --shadow-lg: 0 18px 40px -8px rgb(65 57 88 / 0.3), 0 4px 12px rgb(65 57 88 / 0.12);
     --border-radius: 8px;
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -40,11 +44,18 @@ body {
     font-size: 16px;
 }
 
+@media screen {
+    #cv-app {
+        padding: 20px 0;
+    }
+}
+
 /* Container */
 .cv-container {
     max-width: 1200px;
     margin: 0 auto;
     background: var(--surface-color);
+    border: none;
     box-shadow: var(--shadow-lg);
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -57,6 +68,7 @@ body {
     padding: 3rem 2rem;
     text-align: center;
     position: relative;
+    z-index: 1;
 }
 
 .profile-section {
@@ -73,8 +85,7 @@ body {
 }
 
 :root:not([data-theme="dark"]) .profile-image {
-    border-color: #6f94b5;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.55);
+    border-color: #5b6a80;
 }
 
 .name {
@@ -169,7 +180,7 @@ body {
 }
 
 :root:not([data-theme="dark"]) .social-link {
-    border: 1px solid rgba(66, 101, 133, 0.35);
+    border: 1px solid var(--border-color);
     box-shadow: 0 2px 5px rgba(38, 62, 85, 0.1);
 }
 
@@ -301,8 +312,8 @@ body {
 }
 
 .tech-tag {
-    background: var(--secondary-color);
-    color: white;
+    background: var(--tag-background-color);
+    color: var(--tag-text-color);
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
     font-size: 0.8rem;
@@ -332,8 +343,8 @@ body {
 }
 
 .skill-tag {
-    background: var(--secondary-color);
-    color: white;
+    background: var(--tag-background-color);
+    color: var(--tag-text-color);
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
     font-size: 0.8rem;
@@ -422,7 +433,7 @@ body {
     background: var(--background-color);
     padding: 1.5rem 2rem;
     text-align: center;
-    border-top: 1px solid var(--border-color);
+    border-top: none;
 }
 
 .footer-link {

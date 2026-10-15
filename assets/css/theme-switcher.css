@@ -1,17 +1,15 @@
 /**
  * Theme Switcher CSS
- * Toggles between modern light and original dark themes
+ * Toggles between pastel light and dusk themes
  */
 
-/* Theme Toggle Button */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
+/* Shared action button styles */
+.theme-toggle,
+.pdf-export-btn,
+.error button {
     background: var(--button-background-color);
-    color: white;
-    border: none;
+    color: var(--button-text-color);
+    border: 1px solid var(--border-color);
     border-radius: 50px;
     padding: 12px 20px;
     cursor: pointer;
@@ -20,35 +18,61 @@
     gap: 8px;
     font-size: 14px;
     font-weight: 500;
+    font-family: inherit;
+    line-height: 1.4;
     box-shadow: var(--shadow-lg);
     transition: all 0.3s ease;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover:not(:disabled),
+.pdf-export-btn:hover:not(:disabled),
+.error button:hover:not(:disabled) {
     background: var(--button-hover-background-color);
     transform: translateY(-2px);
-    box-shadow: 0 12px 20px -5px rgb(0 0 0 / 0.2);
+    box-shadow: var(--shadow-md);
+}
+
+.theme-toggle:focus-visible,
+.pdf-export-btn:focus-visible,
+.error button:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 .theme-toggle i {
     font-size: 16px;
 }
 
-/* Dark Theme Variables - Updated colors for better dark theme experience */
+/* Deep slate surfaces with restrained, muted blue accents. */
 [data-theme="dark"] {
-    --primary-color: #4f8cc9;
-    --secondary-color: #6b7c93;
-    --accent-color: #8497bc;
-    --background-color: #19202e;
-    --surface-color: #28344a;
-    --text-primary: #d7dde9;
-    --text-secondary: #a5b3ce;
-    --border-color: rgba(255, 255, 255, 0.2);
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+    --primary-color: #bdcbe0;
+    --header-background-start: #06080c;
+    --header-background-end: #040608;
+    --header-text-color: #edf1f7;
+    --button-background-color: #273449;
+    --button-hover-background-color: #34445b;
+    --button-text-color: #edf1f7;
+    --secondary-color: #c0c9d7;
+    --accent-color: #ccd6e5;
+    --background-color: #0b0f16;
+    --surface-color: #19212d;
+    --text-primary: #edf1f7;
+    --text-secondary: #c0c9d7;
+    --border-color: #667387;
+    --tag-background-color: #212c3c;
+    --tag-hover-background-color: #2e3a4d;
+    --tag-text-color: #e0e7f2;
+    --shadow-sm: 0 1px 3px 0 rgb(19 19 30 / 0.12);
+    --shadow-md: 0 4px 8px -2px rgb(19 19 30 / 0.18);
+    --shadow-lg: 0 18px 40px -8px rgb(0 0 0 / 0.7), 0 4px 12px rgb(0 0 0 / 0.4);
 }
-
 /* Dark Theme Specific Overrides */
 [data-theme="dark"] body {
     background: var(--background-color);
@@ -60,9 +84,17 @@
     box-shadow: var(--shadow-lg);
 }
 
+[data-theme="dark"] .cv-content {
+    background: #10161f;
+}
+
 [data-theme="dark"] .cv-header {
-    background: linear-gradient(135deg, #1e2738, #19202e);
+    background: linear-gradient(135deg, var(--header-background-start), var(--header-background-end));
     color: var(--text-primary);
+}
+
+[data-theme="dark"] .profile-image {
+    border-color: #9aa9bf;
 }
 
 [data-theme="dark"] .contact-group,
@@ -73,15 +105,15 @@
 
 [data-theme="dark"] .contact-item:hover,
 [data-theme="dark"] .social-link:hover {
-    color: #9ebee6;
+    color: var(--primary-color);
 }
 
 [data-theme="dark"] .social-link {
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--tag-background-color);
 }
 
 [data-theme="dark"] .social-link:hover {
-    background: rgba(0, 0, 0, 0.6);
+    background: var(--tag-hover-background-color);
 }
 
 [data-theme="dark"] .section-title {
@@ -89,7 +121,8 @@
 }
 
 [data-theme="dark"] .cv-section {
-    background: rgba(40, 52, 74, 0.8);
+    --surface-color: #171f2b;
+    background: var(--surface-color);
     border: 1px solid var(--border-color);
 }
 
@@ -104,13 +137,13 @@
 
 [data-theme="dark"] .tech-tag,
 [data-theme="dark"] .skill-tag {
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--tag-background-color);
     color: var(--text-primary);
 }
 
 [data-theme="dark"] .tech-tag:hover,
 [data-theme="dark"] .skill-tag:hover {
-    background: rgba(0, 0, 0, 0.6);
+    background: var(--tag-hover-background-color);
 }
 
 [data-theme="dark"] .skill-progress {
@@ -118,7 +151,7 @@
 }
 
 [data-theme="dark"] .education-institution a {
-    color: #9ebee6;
+    color: var(--primary-color);
 }
 
 [data-theme="dark"] .education-institution a:hover {
@@ -131,7 +164,7 @@
 
 [data-theme="dark"] .cv-footer {
     background: var(--background-color);
-    border-top: 1px solid var(--border-color);
+    border-top: none;
 }
 
 [data-theme="dark"] .footer-link {
@@ -157,12 +190,12 @@
 }
 
 [data-theme="dark"] .error button {
-    background: var(--primary-color);
-    color: white;
+    background: var(--button-background-color);
+    color: var(--button-text-color);
 }
 
 [data-theme="dark"] .error button:hover {
-    background: #fe4d43;
+    background: var(--button-hover-background-color);
 }
 
 /* Smooth transitions for theme switching */
@@ -170,28 +203,36 @@
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Responsive adjustments for theme toggle */
+/* Responsive adjustments for fixed action buttons */
 @media (max-width: 768px) {
-    .theme-toggle {
+    .theme-toggle,
+    .pdf-export-btn {
         top: 15px;
-        right: 15px;
         padding: 10px 16px;
         font-size: 12px;
     }
     
+    .theme-toggle {
+        right: 15px;
+    }
+
     .theme-toggle i {
         font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
-    .theme-toggle {
+    .theme-toggle,
+    .pdf-export-btn {
         top: 10px;
-        right: 10px;
         padding: 8px 12px;
         font-size: 11px;
     }
     
+    .theme-toggle {
+        right: 10px;
+    }
+
     .theme-toggle i {
         font-size: 12px;
     }

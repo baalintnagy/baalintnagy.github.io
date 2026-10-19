@@ -198,9 +198,46 @@
     background: var(--button-hover-background-color);
 }
 
-/* Smooth transitions for theme switching */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+/* Snapshot crossfade also blends gradients and decorative surfaces. */
+html.theme-crossfade::view-transition-old(root) {
+    animation: none;
+}
+
+html.theme-crossfade::view-transition-new(root) {
+    animation: theme-reveal 1000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    mix-blend-mode: normal;
+}
+
+/* Avoid capturing a partially transitioned palette in the new snapshot. */
+html.theme-crossfade *,
+html.theme-crossfade *::before,
+html.theme-crossfade *::after {
+    transition: none !important;
+}
+
+@keyframes theme-reveal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Color interpolation for browsers without document view transitions. */
+html.theme-color-fade,
+html.theme-color-fade *,
+html.theme-color-fade *::before,
+html.theme-color-fade *::after {
+    transition: background-color 1000ms ease, color 1000ms ease,
+        border-color 1000ms ease, box-shadow 1000ms ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.theme-crossfade::view-transition-old(root),
+    html.theme-crossfade::view-transition-new(root) {
+        animation: none;
+    }
+
+    .theme-toggle {
+        transition: none;
+    }
 }
 
 /* Responsive adjustments for fixed action buttons */

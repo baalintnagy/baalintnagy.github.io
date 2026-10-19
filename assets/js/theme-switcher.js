@@ -52,13 +52,42 @@ class ThemeSwitcher {
     }
 
     toggleTheme() {
+        // Ignore repeated input while the current crossfade is settling.
+        if (this.isTransitioning) return;
+
         const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-        this.applyTheme(newTheme);
-        
-        // Emit custom event for other components to listen to
-        document.dispatchEvent(new CustomEvent('themeChanged', { 
-            detail: { theme: newTheme } 
-        }));
+        const update = () => {
+            this.applyTheme(newTheme);
+            document.dispatchEvent(new CustomEvent('themeChanged', {
+                detail: { theme: newTheme }
+            }));
+        };
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (reducedMotion) {
+            update();
+            return;
+        }
+
+        const root = document.documentElement;
+        this.isTransitioning = true;
+        const finish = () => {
+            root.classList.remove('theme-crossfade', 'theme-color-fade');
+            this.isTransitioning = false;
+        };
+
+        if (typeof document.startViewTransition === 'function') {
+            root.classList.add('theme-crossfade');
+            const transition = document.startViewTransition(update);
+            // A skipped transition still applies the theme and releases the input lock.
+            transition.finished.catch(() => {}).finally(finish);
+        } else {
+            root.classList.add('theme-color-fade');
+            // Flush the transition styles before changing the palette.
+            void root.offsetWidth;
+            update();
+            window.setTimeout(finish, 1050);
+        }
     }
 
     bindEvents() {
